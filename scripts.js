@@ -20,7 +20,7 @@ switch (operator) {
         alert(num1 + operator + num2 + "=" + multiply);
         break;
     default:
-        alert('You must choose a number!');
+        alert('You must choose a number and operand!');
 }
 
 
