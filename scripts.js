@@ -1,10 +1,10 @@
 let operator = prompt(`Enter operator +, -, /, *`);
-let num1 = prompt(`Enter operand A`);
-let num2 = prompt(`Enter operand B`);
-let plus = (Number(num1) + Number(num2));
-let minus = (Number(num1) - Number(num2));
-let divide = (Number(num1) / Number(num2));
-let multiply = (Number(num1) * Number(num2));
+let num1 = Number(prompt(`Enter operand A`));
+let num2 = Number(prompt(`Enter operand B`));
+let plus = ((num1) + (num2));
+let minus = ((num1) - (num2));
+let divide = ((num1) / (num2));
+let multiply = ((num1) * (num2));
 
 switch (operator) {
     case '+':
