@@ -1,4 +1,4 @@
-// *Part 1*
+//*Part 1*//
 //
 // let operator = prompt(`Enter operator +, -, /, *`);
 // let num1 = Number(prompt(`Enter operand A`));
@@ -21,7 +21,7 @@
 //         alert('You must choose a number and operand!');
 // }
 
-// *Part 2*
+//*Part 2*//
 const obj = {
     prop: '42',
     prop2: [8, 9, 10, {
