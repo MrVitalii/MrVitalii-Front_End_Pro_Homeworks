@@ -8,13 +8,11 @@ let divide = ((num1) / (num2));
 let multiply = ((num1) * (num2));
 const result = calc(operator, num1, num2);
 alert(`${num1} ${operator} ${num2} = ${result}`)
+// const arr =  ['+', '-', '/', '*'];
 
-// function validation(numbers) {
-//     if (isNaN(numbers) === false)
-//         return Number(prompt(`${validation(numbers)}`));
-//     // else if (operator.includes(`+, -, /, *`))
-//     //     return (prompt(`${numbers}`));
-//     else alert('You must choose a number and operand!');
+// function validation(){
+//     if (Number.isNaN (num1&&num2) === false)
+//     alert('');
 // }
 
 function calc(operator) {
