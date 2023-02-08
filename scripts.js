@@ -1,35 +1,34 @@
 //*Part 1*//
 let operator = prompt(`Enter operator +, -, /, *`);
-let num1 = validation(prompt(`Enter operand A`));
-let num2 = validation(prompt(`Enter operand B`));
+let num1 = Number(prompt(`Enter operand A`));
+let num2 = Number(prompt(`Enter operand B`));
 let plus = ((num1) + (num2));
 let minus = ((num1) - (num2));
 let divide = ((num1) / (num2));
 let multiply = ((num1) * (num2));
+const result = calc(operator, num1, num2);
+alert(`${num1} ${operator} ${num2} = ${result}`)
 
-function validation(numbers) {
-    if (Number.isNaN(numbers) === false)
-        return Number(prompt(`${numbers}`));
-    else if (operator.includes(`+, -, /, *`))
-        return Number(prompt(`${numbers}`));
-    else alert('You must choose a number and operand!');
-}
+// function validation(numbers) {
+//     if (isNaN(numbers) === false)
+//         return Number(prompt(`${validation(numbers)}`));
+//     // else if (operator.includes(`+, -, /, *`))
+//     //     return (prompt(`${numbers}`));
+//     else alert('You must choose a number and operand!');
+// }
 
-switch (operator) {
-    case '+':
-        alert(num1 + " " + operator + " " + num2 + " " + "=" + " " + plus);
-        break;
-    case '-':
-        alert(num1 + " " + operator + " " + num2 + " " + "=" + " " + minus);
-        break;
-    case '/':
-        alert(num1 + " " + operator + " " + num2 + " " + "=" + " " + divide);
-        break;
-    case '*':
-        alert(num1 + " " + operator + " " + num2 + " " + "=" + " " + multiply);
-        break;
-    default:
-        alert('You must choose a number and operand!');
+function calc(operator) {
+    switch (operator) {
+        case '+':return (plus);
+
+        case '-':return (minus);
+
+        case '/':return (divide);
+
+        case '*':return (multiply);
+        default:
+            alert('You must choose a number and operand!');
+    }
 }
 
 //*Part 2*//
