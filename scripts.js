@@ -2,32 +2,53 @@
 let operator = prompt(`Enter operator +, -, /, *`);
 let num1 = Number(prompt(`Enter operand A`));
 let num2 = Number(prompt(`Enter operand B`));
-let plus = ((num1) + (num2));
-let minus = ((num1) - (num2));
-let divide = ((num1) / (num2));
-let multiply = ((num1) * (num2));
-const result = calc(operator, num1, num2);
-alert(`${num1} ${operator} ${num2} = ${result}`)
-// const arr =  ['+', '-', '/', '*'];
 
-// function validation(){
-//     if (Number.isNaN (num1&&num2) === false)
-//     alert('');
-// }
+
+if (isNaN(num1) || isNaN(num2) || (operator !== '+' & operator !== '-' & operator !== '/' & operator !== '*')
+) {
+    alert('You must choose a number and operand!');
+} else {
+    const result = calc(operator, num1, num2);
+    ViewResults(num1, operator, num2, result)
+}
+
+
+function plus(num1, num2) {
+    return num1 + num2;
+}
+
+function minus(num1, num2) {
+    return num1 - num2;
+}
+
+function divide(num1, num2) {
+    return num1 / num2;
+}
+
+function multiply(num1, num2) {
+    return num1 * num2;
+}
 
 function calc(operator) {
     switch (operator) {
-        case '+':return (plus);
+        case '+':
+            return plus(num1, num2);
 
-        case '-':return (minus);
+        case '-':
+            return minus(num1, num2);
 
-        case '/':return (divide);
+        case '/':
+            return divide(num1, num2);
 
-        case '*':return (multiply);
-        default:
-            alert('You must choose a number and operand!');
+        case '*':
+            return multiply(num1, num2);
     }
 }
+
+function ViewResults(operator, num1, num2, result) {
+    alert(`${operator} ${num1} ${num2} = ${result}`)
+}
+
 
 //*Part 2*//
 const obj = {
