@@ -12,7 +12,6 @@ if (isNaN(num1) || isNaN(num2) || (operator !== '+' & operator !== '-' & operato
     ViewResults(num1, operator, num2, result)
 }
 
-
 function plus(num1, num2) {
     return num1 + num2;
 }
@@ -48,7 +47,6 @@ function calc(operator) {
 function ViewResults(operator, num1, num2, result) {
     alert(`${operator} ${num1} ${num2} = ${result}`)
 }
-
 
 //*Part 2*//
 const obj = {
