@@ -1,52 +1,52 @@
-let operator = prompt(`Enter operator +, -, /, *`);
-let num1 = Number(prompt(`Enter operand A`));
-let num2 = Number(prompt(`Enter operand B`));
-let num3 = Number(prompt(`Enter operand С`));
-let num4 = Number(prompt(`Enter operand D`))
-let num5 = Number(prompt(`Enter operand E`));
-
-
-const result = calc(operator, num1, num2, num3, num4, num5);
-ViewResults(num1, operator, num2, operator, num3, operator, num4, operator, num5, result)
-
+let operator = ''
+let numbersCount = 0
+let operands = []
+let result
 
 do {
-    operator = prompt('Enter operator');
-} while (operator !== '+')
+    operator = prompt(`Enter operator +, -, /, *`);
+} while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*');
 
+do {
+    numbersCount = prompt(`Enter operands count`);
+} while (numbersCount <= 1 || numbersCount > 5);
 
-function plus(num1, num2, num3, num4, num5,) {
-    return num1 + num2 + num3 + num4 + num5;
+for (let i = 1; i <= numbersCount; i++) {
+    let operand;
+    do {
+        operand = prompt(`Enter operand ` + i);
+        operand = Number(operand);
+    } while (isNaN(operand))
+
+    operands.push(operand)
 }
 
-function minus(num1, num2, num3, num4, num5,) {
-    return num1 - num2 - num3 - num4 - num5;
+for (let i = 0; i < numbersCount - 1; i++) {
+    if (i === 0) {
+        result = operands[i]
+    }
+
+    result = doOperation(operator, result, operands[i + 1])
 }
 
-function divide(num1, num2, num3, num4, num5,) {
-    return num1 / num2 / num3 / num4 / num5;
-}
-
-function multiply(num1, num2, num3, num4, num5,) {
-    return num1 * num2 * num3 * num4 * num5;
-}
-
-function calc(operator) {
+function doOperation(operator, firstNumber, secondNumber)
+{
     switch (operator) {
         case '+':
-            return plus(num1, num2, num3, num4, num5);
-
+            result = firstNumber + secondNumber
+            break;
         case '-':
-            return minus(num1, num2, num3, num4, num5);
-
+            result = firstNumber - secondNumber
+            break;
         case '/':
-            return divide(num1, num2, num3, num4, num5);
-
+            result = firstNumber / secondNumber
+            break;
         case '*':
-            return multiply(num1, num2, num3, num4, num5);
+            result = firstNumber * secondNumber
+            break;
     }
+
+    return result
 }
 
-function ViewResults(operator, num1, num2, num3, num4, num5, result) {
-    alert(`${operator} ${num1} ${num2} ${num3} ${num4} ${num5} = ${result}`)
-}
+alert(operands.join(operator) + '=' + result)
