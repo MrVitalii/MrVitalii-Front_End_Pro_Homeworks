@@ -22,34 +22,33 @@ const students = [
 ]
 
 const averageSmithsMark = students.find(student => student.id === 10) ["marks"].reduce
-(function (previousValue, currentValue) {
-    return currentValue + previousValue / students[0].marks.length
+(function (accumulator, currentValue) {
+    return accumulator + currentValue / students[0].marks.length
 }, 0)
 
 const averageDoesMark = students.find(student => student.id === 11) ["marks"].reduce
-(function (previousValue, currentValue) {
-    return currentValue + previousValue / students[1].marks.length
+(function (accumulator, currentValue) {
+    return accumulator + currentValue / students[1].marks.length
 }, 0)
 
 const averageAndersonMark = students.find(student => student.id === 12) ["marks"].reduce
-(function (previousValue, currentValue) {
-    return currentValue + previousValue / students[2].marks.length
+(function (accumulator, currentValue) {
+    return accumulator + currentValue / students[2].marks.length
 }, 0)
 
 const averageZorgsMark = students.find(student => student.id === 13) ["marks"].reduce
-(function (previousValue, currentValue) {
-    return currentValue + previousValue / students[3].marks.length
+(function (accumulator, currentValue) {
+    return accumulator + currentValue / students[3].marks.length
 }, 0)
 
-const sum_of_averageStudentsMark = students. reduce
+const sum_of_averageStudentsMark = students.reduce
 (function () {
     return averageSmithsMark + averageDoesMark + averageAndersonMark + averageZorgsMark
-    })
+})
 
-
-const averageGroupMark = students. reduce
+const averageGroupMark = students.reduce
 (function () {
-    return  sum_of_averageStudentsMark / students.length
+    return sum_of_averageStudentsMark / students.length
 },)
 
 console.log(averageGroupMark)
