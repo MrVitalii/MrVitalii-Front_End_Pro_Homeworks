@@ -7,7 +7,7 @@ const students = [
     {
         id: 11,
         name: 'John Doe',
-        marks: [ 9, 8, 7, 6, 7]
+        marks: [9, 8, 7, 6, 7]
     },
     {
         id: 12,
@@ -20,5 +20,42 @@ const students = [
         marks: [10, 9, 8, 9]
     }
 ]
-averageStudentMark(10); // id === 10
-averageGroupMark(students);
+// averageStudentMark(10); // id === 10
+// averageGroupMark(students);
+
+const averageSmithsMark = students.find(student => student.id === 10) ["marks"].reduce
+(function (previousValue, currentValue) {
+    return currentValue + previousValue / students[0].marks.length
+}, 0);
+
+const averageDoesMark = students.find(student => student.id === 11) ["marks"].reduce
+(function (previousValue, currentValue) {
+    return currentValue + previousValue / students[1].marks.length
+}, 0);
+
+const averageAndersonMark = students.find(student => student.id === 12) ["marks"].reduce
+(function (previousValue, currentValue) {
+    return currentValue + previousValue / students[2].marks.length
+}, 0);
+
+const averageZorgsMark = students.find(student => student.id === 13) ["marks"].reduce
+(function (previousValue, currentValue) {
+    return currentValue + previousValue / students[3].marks.length
+}, 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
