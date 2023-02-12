@@ -51,7 +51,7 @@ const averageGroupMark = students.reduce
     return sum_of_averageStudentsMark / students.length
 },)
 
-console.log(averageGroupMark)
+alert(`averageGroupMark  = ${averageGroupMark}`)
 
 
 
