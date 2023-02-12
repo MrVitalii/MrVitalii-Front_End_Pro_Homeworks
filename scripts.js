@@ -21,7 +21,6 @@ const students = [
     }
 ]
 
-
 const averageSmithsMark = students.find(student => student.id === 10) ["marks"].reduce
 (function (previousValue, currentValue) {
     return currentValue + previousValue / students[0].marks.length
@@ -42,9 +41,18 @@ const averageZorgsMark = students.find(student => student.id === 13) ["marks"].r
     return currentValue + previousValue / students[3].marks.length
 }, 0)
 
-const averageStudentMark = averageSmithsMark + averageDoesMark + averageAndersonMark + averageZorgsMark
+const sum_of_averageStudentsMark = students. reduce
+(function () {
+    return averageSmithsMark + averageDoesMark + averageAndersonMark + averageZorgsMark
+    })
 
-console.log(averageStudentMark/students.length)
+
+const averageGroupMark = students. reduce
+(function () {
+    return  sum_of_averageStudentsMark / students.length
+},)
+
+console.log(averageGroupMark)
 
 
 
