@@ -21,37 +21,34 @@ const students = [
     }
 ]
 
-const averageSmithsMark = students.find(student => student.id === 10) ["marks"].reduce
-(function (accumulator, currentValue) {
-    return accumulator + currentValue / students[0].marks.length
-}, 0)
+function averageStudentMark(studentId) {
+    const student = students.find(student => student.id === studentId);
 
-const averageDoesMark = students.find(student => student.id === 11) ["marks"].reduce
-(function (accumulator, currentValue) {
-    return accumulator + currentValue / students[1].marks.length
-}, 0)
+    let averageMark = student["marks"].reduce
+    (function (accumulator, currentValue) {
+        return accumulator + currentValue;
+    }, 0)
 
-const averageAndersonMark = students.find(student => student.id === 12) ["marks"].reduce
-(function (accumulator, currentValue) {
-    return accumulator + currentValue / students[2].marks.length
-}, 0)
+    averageMark /= student.marks.length;
 
-const averageZorgsMark = students.find(student => student.id === 13) ["marks"].reduce
-(function (accumulator, currentValue) {
-    return accumulator + currentValue / students[3].marks.length
-}, 0)
+    return averageMark;
+}
 
-const sum_of_averageStudentsMark = students.reduce
-(function () {
-    return averageSmithsMark + averageDoesMark + averageAndersonMark + averageZorgsMark
-})
+function averageGroupMark() {
+    let averageMark = students.reduce
+    (function (accumulator, currentValue) {
+        return accumulator + averageStudentMark(currentValue.id);
+    }, 0)
 
-const averageGroupMark = students.reduce
-(function () {
-    return sum_of_averageStudentsMark / students.length
-},)
+    averageMark /= students.length;
 
-alert(`averageGroupMark  = ${averageGroupMark}`)
+    return averageMark;
+}
+
+const averageGroupMarkValue = averageGroupMark();
+
+alert(`averageGroupMarkValue  = ${averageGroupMarkValue}`)
+
 
 
 
