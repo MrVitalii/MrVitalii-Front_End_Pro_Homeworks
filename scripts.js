@@ -1,40 +1,40 @@
-const operator = getAction();
-const numbersCount = getOperandsCount();
-const operands = enterOperands(numbersCount);
-const result = doCalculationAllOperands(operands, operator);
+const operator = getAction()
+const numbersCount = getOperandsCount()
+const operands = enterOperands(numbersCount)
+const result = doCalculationAllOperands(operands, operator)
 
 function getAction() {
     let operator = ''
     do {
-        operator = prompt('Enter operator +, -, /, *');
-    } while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*');
+        operator = prompt('Enter operator +, -, /, *')
+    } while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*')
     return operator
 }
 
 function getOperandsCount() {
     let numbersCount = 0
     do {
-        numbersCount = Number(prompt('Enter operands count'));
-    } while (numbersCount <= 1 || numbersCount > 4 || isNaN(numbersCount));
+        numbersCount = Number(prompt('Enter operands count'))
+    } while (numbersCount <= 1 || numbersCount > 4 || isNaN(numbersCount))
     return numbersCount
 }
 
 function enterOperands(numbersCount) {
-    let operands = [];
+    let operands = []
     for (let i = 1; i <= numbersCount; i++) {
         let operand
         do {
-            operand = prompt(`Enter operand ` + i);
-            operand = Number(operand);
+            operand = prompt(`Enter operand ` + i)
+            operand = Number(operand)
         } while (isNaN(operand))
         operands.push(operand)
     }
 
-    return operands;
+    return operands
 }
 
 function doCalculationAllOperands(operands, operator) {
-    let result;
+    let result
 
     for (let i = 0; i < numbersCount - 1; i++) {
         if (i === 0) {
@@ -43,11 +43,11 @@ function doCalculationAllOperands(operands, operator) {
         result = calculate(operator, result, operands[i + 1])
     }
 
-    return result;
+    return result
 }
 
 function calculate(operator, firstNumber, secondNumber) {
-    let result;
+    let result
 
     switch (operator) {
         case '+':
