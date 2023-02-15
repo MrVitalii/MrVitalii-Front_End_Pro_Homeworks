@@ -1,36 +1,55 @@
-let operator = ''
-let numbersCount = 0
-let operands = []
-let result
+const operator = getAction();
+const numbersCount = getOperandsCount();
+const operands = enterOperands(numbersCount);
+const result = doCalculationAllOperands(operands, operator);
 
-do {
-    operator = prompt(`Enter operator +, -, /, *`);
-} while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*');
+function getAction() {
+    let operator = ''
 
-do {
-    numbersCount = prompt(`Enter operands count`);
-} while (numbersCount <= 1 || numbersCount > 5);
-
-for (let i = 1; i <= numbersCount; i++) {
-    let operand;
     do {
-        operand = prompt(`Enter operand ` + i);
-        operand = Number(operand);
-    } while (isNaN(operand))
-
-    operands.push(operand)
+        operator = prompt('Enter operator +, -, /, *');
+    } while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*');
+    return operator
 }
 
-for (let i = 0; i < numbersCount - 1; i++) {
-    if (i === 0) {
-        result = operands[i]
+function getOperandsCount() {
+    let numbersCount = 0
+    do {
+        numbersCount = Number(prompt('Enter operands count'));
+    } while (numbersCount <= 1 || numbersCount > 4 || isNaN(numbersCount));
+    return numbersCount
+}
+
+function enterOperands(numbersCount) {
+    let operands = [];
+    for (let i = 1; i <= numbersCount; i++) {
+        let operand
+        do {
+            operand = prompt(`Enter operand ` + i);
+            operand = Number(operand);
+        } while (isNaN(operand))
+        operands.push(operand)
     }
 
-    result = doOperation(operator, result, operands[i + 1])
+    return operands;
 }
 
-function doOperation(operator, firstNumber, secondNumber)
-{
+function doCalculationAllOperands(operands, operator) {
+    let result;
+
+    for (let i = 0; i < numbersCount - 1; i++) {
+        if (i === 0) {
+            result = operands[i]
+        }
+        result = calculate(operator, result, operands[i + 1])
+    }
+
+    return result;
+}
+
+function calculate(operator, firstNumber, secondNumber) {
+    let result;
+
     switch (operator) {
         case '+':
             result = firstNumber + secondNumber
