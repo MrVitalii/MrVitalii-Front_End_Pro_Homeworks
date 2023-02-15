@@ -1,6 +1,6 @@
-const operator = getAction()
-const numbersCount = getOperandsCount()
-const operands = enterOperands(numbersCount)
+const operator = getAction();
+const numbersCount = getOperandsCount();
+const operands = enterOperands(numbersCount);
 const result = doCalculationAllOperands(operands, operator)
 
 function getAction() {
