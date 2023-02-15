@@ -5,7 +5,6 @@ const result = doCalculationAllOperands(operands, operator);
 
 function getAction() {
     let operator = ''
-
     do {
         operator = prompt('Enter operator +, -, /, *');
     } while (operator !== '+' && operator !== '-' && operator !== '/' && operator !== '*');
