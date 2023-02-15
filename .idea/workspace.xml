@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a051dcb-bd05-477d-a7da-a436c1b45424" name="Changes" comment="Fixed version" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2LW0WS4xeTSiu8fp0OhpjEvU7zA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Programs/PhpStorm 2021.3.3/Projects/Homeworks Front End Pro/Homeworks Frond End Pro NEW/Homework 4",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a051dcb-bd05-477d-a7da-a436c1b45424" name="Changes" comment="" />
+      <created>1675971562710</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675971562710</updated>
+      <workItem from="1675971563858" duration="3512000" />
+      <workItem from="1676040968508" duration="594000" />
+      <workItem from="1676061152966" duration="5477000" />
+      <workItem from="1676066699189" duration="1247000" />
+      <workItem from="1676070926639" duration="1022000" />
+      <workItem from="1676099294287" duration="5831000" />
+      <workItem from="1676135375758" duration="333000" />
+      <workItem from="1676136493433" duration="19000" />
+      <workItem from="1676169463185" duration="74000" />
+      <workItem from="1676212639820" duration="61000" />
+      <workItem from="1676214156176" duration="2417000" />
+      <workItem from="1676218581615" duration="52000" />
+      <workItem from="1676252249600" duration="100000" />
+      <workItem from="1676382876947" duration="22467000" />
+      <workItem from="1676467331963" duration="7314000" />
+    </task>
+    <task id="LOCAL-00001" summary="First">
+      <created>1676065848094</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676065848094</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First">
+      <created>1676066030345</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676066030345</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First">
+      <created>1676066250101</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676066250101</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First">
+      <created>1676070984859</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676070984859</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Commit">
+      <created>1676101566219</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676101566219</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed version">
+      <created>1676475604689</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676475604689</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed version">
+      <created>1676475869603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676475869603</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Homework_4" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First" />
+    <MESSAGE value="Commit" />
+    <MESSAGE value="Fixed version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed version" />
+  </component>
+</project>
