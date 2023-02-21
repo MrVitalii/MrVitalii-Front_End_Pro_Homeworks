@@ -25,7 +25,7 @@ const QUESTIONS = [
         type: 'confirm',
     },
     {
-        question: 'Сколько черных пакетов выделяются на одного орка?',
+        question: 'Сколько черных пакетов выделяется на одного орка?',
         answer: '1',
         type: 'prompt',
     },
