@@ -1,8 +1,10 @@
 'use strict'
 
 function Calculator(base) {
+    //making new property
     this.currentValue = base
 
+    //methods
     this.add = function add(base) {
         if (typeof base === 'number') {
             return this.currentValue += base
@@ -32,6 +34,7 @@ function Calculator(base) {
 }
 
 
+//making new object 'calc'
 const calc = new Calculator(100);
 
 
