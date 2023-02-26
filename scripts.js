@@ -1,3 +1,4 @@
+'use strict'
 function Calculator(base) {
     this.currentValue = base
 
