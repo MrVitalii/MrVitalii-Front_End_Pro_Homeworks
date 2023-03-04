@@ -4,7 +4,6 @@ function Hamburger(size) {
     // implement
     this.price = size.price //price = chose size
     this.calories = size.calories //calories = chose size
-    this.toppings = [] //empty massive for toppings
 }
 
 //Static properties
@@ -50,7 +49,6 @@ Hamburger.TOPPING_MAYONNAISE = {
 
 //Methods in prototype
 Hamburger.prototype.addTopping = function (topping) {
-    this.toppings.push(topping) //pushing toppings to massive
     this.price += topping.price
     this.calories += topping.calories
 }
