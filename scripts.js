@@ -4,13 +4,13 @@ class Student {
         this.marks = marks
     }
 
+    getMarksSum() {
+        return this.marks.reduce((accumulator, mark) => accumulator + mark, 0)
+    }
+
     getAverageMark() {
         const marksSum = this.getMarksSum()
         return marksSum / this.marks.length
-    }
-
-    getMarksSum() {
-        return this.marks.reduce((accumulator, mark) => accumulator + mark, 0)
     }
 }
 
@@ -29,13 +29,13 @@ class Group {
         }
     }
 
+    getAverageMarksSum() {
+        return this.#students.reduce((accumulator, student) => accumulator + student.getAverageMark(), 0);
+    }
+
     getAverageMark() {
         const averageMarksSum = this.getAverageMarksSum()
         return averageMarksSum / this.#students.length
-    }
-
-    getAverageMarksSum() {
-        return this.#students.reduce((accumulator, student) => accumulator + student.getAverageMark(), 0);
     }
 
     get students() {
