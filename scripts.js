@@ -25,7 +25,7 @@ class Group {
 
     addStudent(student) {
         if (this.#isStudent(student)) {
-            this.students.push(student)
+            this.#students.push(student)
         }
     }
 
