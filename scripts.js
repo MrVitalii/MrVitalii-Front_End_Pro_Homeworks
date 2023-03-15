@@ -10,6 +10,9 @@ const contactsTable = document.querySelector('#contactsTable')
 const nameInput = document.querySelector('#nameInput')
 const surnameInput = document.querySelector('#surnameInput')
 const phoneInput = document.querySelector('#phoneInput')
+const button = document.querySelector('#actionButton')
+
+button.addEventListener('click', addContact)
 
 const validateInputs = () => {
     const name = nameInput.value.trim()
@@ -23,7 +26,7 @@ const validateInputs = () => {
     return true
 }
 
-const addContact = () => {
+function addContact() {
     if (validateInputs()) {
         const name = nameInput.value.trim()
         const surname = surnameInput.value.trim()
