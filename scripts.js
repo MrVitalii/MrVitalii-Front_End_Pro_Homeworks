@@ -1,45 +1,54 @@
-const contactTemplate = ({name, surname, phone}) => `
-  <tr>
-    <th>${name}</th>
-    <th>${surname}</th>
-    <th>${phone}</th>
-  </tr>
-`
-
 const contactsTable = document.querySelector('#contactsTable')
 const nameInput = document.querySelector('#nameInput')
 const surnameInput = document.querySelector('#surnameInput')
 const phoneInput = document.querySelector('#phoneInput')
 const button = document.querySelector('#actionButton')
 
-button.addEventListener('click', addContact)
+button.addEventListener('click', onButtonClick)
 
-const validateInputs = () => {
-    const name = nameInput.value.trim()
-    const surname = surnameInput.value.trim()
-    const phone = phoneInput.value.trim()
+function onButtonClick() {
+    const contact = getContact()
 
-    if (name === '' || surname === '' || phone === '' || isNaN(Number(phone))) {
-        alert('Некорректные данные. Заполните поля Name, Surname, Phone')
-        return false
+    if (!isContactValid(contact)) {
+        alert('Некорректные данные. Заполните поля Name, Surname, Phone');
+        return
     }
-    return true
+
+    renderContact(contact)
+
+    cleanForms()
 }
 
-function addContact() {
-    if (validateInputs()) {
-        const name = nameInput.value.trim()
-        const surname = surnameInput.value.trim()
-        const phone = phoneInput.value.trim()
-
-        const newContact = {name, surname, phone}
-
-        const nextRow = contactTemplate(newContact);
-        const tbody = contactsTable.querySelector('tbody')
-        tbody.insertAdjacentHTML('beforeend', nextRow)
-
-        nameInput.value = ''
-        surnameInput.value = ''
-        phoneInput.value = ''
+function getContact() {
+    return {
+        name: nameInput.value.trim(),
+        surname: surnameInput.value.trim(),
+        phone: phoneInput.value.trim(),
     }
+}
+
+function isContactValid(contact) {
+    return (
+        contact.name !== '' && contact.surname !== '' && contact.phone !== '' && !isNaN(Number(contact.phone))
+    );
+}
+
+function renderContact() {
+    const contact = getContact()
+    const contactTemplate = ({name, surname, phone}) => `
+    <tr>
+      <td>${name}</td>
+      <td>${surname}</td>
+      <td>${phone}</td>
+    </tr>
+  `;
+    const nextRow = contactTemplate(contact)
+    const tbody = contactsTable.querySelector('tbody')
+    tbody.insertAdjacentHTML('beforeend', nextRow)
+}
+
+function cleanForms() {
+    nameInput.value = ''
+    surnameInput.value = ''
+    phoneInput.value = ''
 }
