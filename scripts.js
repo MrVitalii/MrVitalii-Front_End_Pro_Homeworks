@@ -47,7 +47,7 @@ function generateContactHtml(contact) {
       <td>${contact.surname}</td>
       <td>${contact.phone}</td>
     </tr>
-  `;
+  `
 }
 
 function cleanForms() {
