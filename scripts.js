@@ -35,16 +35,19 @@ function isContactValid(contact) {
 
 function renderContact() {
     const contact = getContact()
-    const contactTemplate = ({name, surname, phone}) => `
+    const html = generateContactHtml(contact)
+    const tbody = contactsTable.querySelector('tbody')
+    tbody.insertAdjacentHTML('beforeend', html)
+}
+
+function generateContactHtml(contact) {
+    return `
     <tr>
-      <td>${name}</td>
-      <td>${surname}</td>
-      <td>${phone}</td>
+      <td>${contact.name}</td>
+      <td>${contact.surname}</td>
+      <td>${contact.phone}</td>
     </tr>
   `;
-    const nextRow = contactTemplate(contact)
-    const tbody = contactsTable.querySelector('tbody')
-    tbody.insertAdjacentHTML('beforeend', nextRow)
 }
 
 function cleanForms() {
