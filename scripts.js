@@ -29,7 +29,7 @@ function getContact() {
 
 function isContactValid(contact) {
     return (
-        contact.name !== '' && contact.surname !== '' && contact.phone !== '' && !isNaN(Number(contact.phone))
+        contact.name !== '' && contact.surname !== '' && contact.phone !== '' && !isNaN(contact.phone)
     );
 }
 
