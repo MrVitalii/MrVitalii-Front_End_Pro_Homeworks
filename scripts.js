@@ -1,12 +1,10 @@
-const rootDiv = document.querySelector('#rootDiv')
+
 const ul = document.querySelector('#todoList')
 const input = document.querySelector('#msgInput')
 const button = document.querySelector('#msgButton')
 
 button.addEventListener('click', onButtonClick)
 ul.addEventListener('click', onUlClick)
-rootDiv.addEventListener('click', onRootDivClick)
-
 
 function onButtonClick() {
     const todo = getTodoData()
@@ -21,14 +19,11 @@ function onButtonClick() {
 }
 
 function onUlClick(e) {
+    const li = e.target.closest('li')
     if (e.target.classList.contains('deleteButton')) {
-        const li = e.target.closest('li')
+
         ul.removeChild(li)
     }
-}
-
-function onRootDivClick(e) {
-    const li = e.target.closest('li')
 
     if (li.style.backgroundColor === 'transparent') {
         li.style.backgroundColor = 'aquamarine'
