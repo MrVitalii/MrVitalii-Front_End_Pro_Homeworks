@@ -33,4 +33,4 @@ class Tabs {
 }
 
 const tabsEl = document.querySelector('#tabs')
-new Tabs(tabsEl)  ss
+new Tabs(tabsEl)
