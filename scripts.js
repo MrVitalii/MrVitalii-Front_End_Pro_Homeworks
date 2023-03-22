@@ -4,29 +4,29 @@ class Tabs {
         this.tabsContainer = tabsContainer;
         this.navItems = Array.from(tabsContainer.querySelectorAll('[data-tab-target]'));
         this.tabContents = Array.from(tabsContainer.querySelectorAll('.tab-content'));
-        this.activeTabIndex = 0; // По умолчанию активен первый таб
+        this.activeTabIndex = 0;
         this.initTabs();
     }
 
     initTabs() {
-        this.showTab(this.activeTabIndex); // Показываем первый таб при инициализации
+        this.showTab(this.activeTabIndex);
         this.navItems.forEach((item, index) => {
             item.addEventListener('click', () => {
-                this.showTab(index); // Показываем таб по индексу при клике на него
+                this.showTab(index);
             });
         });
     }
 
     showTab(index) {
-        this.navItems[this.activeTabIndex].classList.remove('nav-item-active'); // Скрываем предыдущую активную табу
+        this.navItems[this.activeTabIndex].classList.remove('nav-item-active');
         this.tabContents[this.activeTabIndex].classList.remove('tab-content-active');
-        this.activeTabIndex = index; // Обновляем активный индекс
-        this.navItems[this.activeTabIndex].classList.add('nav-item-active'); // Показываем новую активную табу
+        this.activeTabIndex = index;
+        this.navItems[this.activeTabIndex].classList.add('nav-item-active');
         this.tabContents.forEach((content, i) => {
             if (i === this.activeTabIndex) {
-                content.classList.add('tab-content-active'); // Добавляем класс для активного контента
+                content.classList.add('tab-content-active');
             } else {
-                content.classList.remove('tab-content-active'); // Удаляем класс для неактивных контентов
+                content.classList.remove('tab-content-active');
             }
         });
     }
