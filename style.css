@@ -1,0 +1,26 @@
+.nav-item-active {
+    background-color: orange;
+}
+
+.content {
+    max-width: 200px;
+}
+
+button {
+    background-color: #fff;
+    border-bottom: none;
+
+}
+
+.tabs div {
+    background-color: orange;
+    padding: 10px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content-active {
+    display: block;
+}
