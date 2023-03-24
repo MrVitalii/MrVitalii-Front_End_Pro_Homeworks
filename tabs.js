@@ -1,6 +1,6 @@
 class Tabs {
     static DEFAULT_TAB_INDEX = 0
-    #activeTabIndex = Tabs.DEFAULT_TAB_INDEX
+    #activeTabIndex
 
     constructor(rootEl) {
         const [navElements, contentElements] = rootEl.children
@@ -10,7 +10,7 @@ class Tabs {
         this.contentElements = Array.from(contentElements.children)
         this.bindStyles()
         this.bindEvents()
-        this.setActiveTab(this.#activeTabIndex)
+        this.setActiveTab(Tabs.DEFAULT_TAB_INDEX)
     }
 
     bindStyles() {
