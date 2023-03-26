@@ -68,5 +68,3 @@ function calculate(operator, firstNumber, secondNumber) {
 }
 
 alert(operands.join(operator) + '=' + result)
-
-
