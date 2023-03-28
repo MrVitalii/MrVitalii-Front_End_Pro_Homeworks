@@ -22,7 +22,7 @@ function onFindUserBtnClick() {
             alert(error.message)
         })
 
-    return clear()
+    clear()
 }
 
 function onInputKeyup(event) {
