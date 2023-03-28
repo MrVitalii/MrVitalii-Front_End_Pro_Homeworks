@@ -16,7 +16,7 @@ function onFindUserBtnClick() {
             return response.json()
         })
         .then((data) => {
-            return renderUser(data)
+            renderUser(data)
         })
         .catch((error) => {
             alert(error.message)
