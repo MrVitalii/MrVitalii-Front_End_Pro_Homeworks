@@ -17,12 +17,11 @@ function onFindUserBtnClick() {
         })
         .then((data) => {
             renderUser(data)
+            clear()
         })
         .catch((error) => {
             alert(error.message)
         })
-
-    clear()
 }
 
 function onInputKeyup(event) {
