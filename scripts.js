@@ -56,7 +56,3 @@ function renderTodo(todo) {
 function clear() {
     input.value = ''
 }
-
-
-
-
