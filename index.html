@@ -6,24 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Todo list + server</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="tabs.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
 
-<div id="tabs">
-    <nav>
-        <button>One</button>
-        <button>Two</button>
-        <button>Three</button>
-    </nav>
+<div>
+    <ul id="todoList"></ul>
 
-    <div>
-        <div>Content 1</div>
-        <div>Content 2</div>
-        <div>Content 3</div>
-    </div>
+    <label><input id="msgInput" type="text" placeholder="Введите сообщение"/></label>
+
+    <button id="msgButton">Отправить</button>
 </div>
 
 </body>
