@@ -1,28 +1,52 @@
-
 const ul = document.querySelector('#todoList')
 const input = document.querySelector('#msgInput')
 const button = document.querySelector('#msgButton')
 
 button.addEventListener('click', onButtonClick)
 ul.addEventListener('click', onUlClick)
+input.addEventListener('keyup', onInputKeyup)
+
+init()
+
+function init() {
+    TodoApi
+        .getList()
+        .then((list) => {
+            renderTodoList(list)
+
+        })
+        .catch(err => showError(err))
+}
 
 function onButtonClick() {
     const todo = getTodoData()
 
     if (!isTodoValid(todo)) {
-        showError()
+        showError(new Error('Поле сообщение не должно быть пустым'))
         return
     }
 
-    renderTodo(todo)
-    clear()
+    TodoApi
+        .create(todo)
+        .then((newTodo) => {
+            renderTodo(newTodo)
+            clear()
+        })
+        .catch(err => showError(err))
 }
 
 function onUlClick(e) {
     const li = e.target.closest('li')
+    const id = li.getAttribute('id')
+
     if (e.target.classList.contains('deleteButton')) {
 
-        ul.removeChild(li)
+        TodoApi
+            .delete(id)
+            .then(() => {
+                deleteUl(li)
+            })
+            .catch(err => showError(err))
     }
 
     if (li.style.backgroundColor === 'transparent') {
@@ -32,25 +56,47 @@ function onUlClick(e) {
     }
 }
 
+function onInputKeyup(e) {
+    if (e.key === 'Enter') {
+        onButtonClick()
+    }
+}
+
 function getTodoData() {
-    return {message: input.value}
+    return {title: input.value}
 }
 
 function isTodoValid(todo) {
-    return todo.message !== ''
+    return todo.title !== ''
 }
 
-function showError() {
-    alert('Поле сообщение не должно быть пустым')
+function showError(error) {
+    alert(error.message)
+}
+
+function renderTodoList(list) {
+    const html = list.map(generateTodoHtml).join('')
+
+    ul.innerHTML = html
 }
 
 function renderTodo(todo) {
-    const li = document.createElement('li')
-    li.innerHTML = `
-        <span class="todo-message">${todo.message}</span>
+    const html = generateTodoHtml(todo)
+
+    ul.insertAdjacentHTML('beforeend', html)
+}
+
+function generateTodoHtml(todo) {
+    return `
+        <li id="${todo.id}">
+        <span class="todo-message">${todo.title}</span>
         <button class="deleteButton">Delete</button>
+        </li>
     `
-    ul.appendChild(li)
+}
+
+function deleteUl(li) {
+    ul.removeChild(li)
 }
 
 function clear() {
