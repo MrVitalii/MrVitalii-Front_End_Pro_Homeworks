@@ -30,9 +30,6 @@ class TodoApi {
     static delete(id) {
         return fetch(`https://6426d763556bad2a5b596110.mockapi.io/api/todo/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-type': 'application/json'
-            }
         }).then(res => {
             if (res.ok) {
                 return res.json();
