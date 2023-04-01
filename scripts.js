@@ -13,7 +13,6 @@ function init() {
         .getList()
         .then((list) => {
             renderTodoList(list)
-
         })
         .catch(err => showError(err))
 }
