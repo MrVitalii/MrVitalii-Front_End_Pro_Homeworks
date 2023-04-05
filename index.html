@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contacts list</title>
+    <title>Contacts list + server</title>
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
     <script src="ContactsApi.js"></script>
 </head>
@@ -18,20 +19,22 @@
         <th>Name</th>
         <th>Surname</th>
         <th>Phone</th>
+        <th>Actions</th>
     </tr>
     </thead>
 
+    <tbody id="ContactsList"></tbody>
+
     <tbody>
-    <tr>
+    <tr id="contactInputs">
         <td><label><input type="text" id="nameInput"></label></td>
         <td><label><input type="text" id="surnameInput"></label></td>
         <td><label><input type="tel" id="phoneInput"></label></td>
         <td>
-            <button type="button" id="actionButton">Add Contact</button>
+            <button type="button" id="actionButton">Add contact</button>
         </td>
     </tr>
     </tbody>
-
 </table>
 
 </body>

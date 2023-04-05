@@ -1,5 +1,5 @@
 class ContactsApi {
-    static API = 'https://6426d763556bad2a5b596110.mockapi.io/api/todo'
+    static API = 'https://6426d763556bad2a5b596110.mockapi.io/api/contacts'
 
     static getList() {
         return fetch(ContactsApi.API).then((res) => {
@@ -28,14 +28,14 @@ class ContactsApi {
     }
 
     static delete(id) {
-        return fetch(`https://6426d763556bad2a5b596110.mockapi.io/api/todo/${id}`, {
+        return fetch(`https://6426d763556bad2a5b596110.mockapi.io/api/contacts/${id}`, {
             method: 'DELETE',
         }).then(res => {
             if (res.ok) {
                 return res.json();
             }
 
-            throw new Error('Can not delete todo from server.');
+            throw new Error('Can not delete contact from server.');
         })
     }
 }

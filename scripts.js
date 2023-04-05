@@ -1,10 +1,27 @@
 const contactsTable = document.querySelector('#contactsTable')
+const contactsList = document.querySelector('#ContactsList')
 const nameInput = document.querySelector('#nameInput')
 const surnameInput = document.querySelector('#surnameInput')
 const phoneInput = document.querySelector('#phoneInput')
+const contactInputs = document.querySelector('#contactInputs')
 const button = document.querySelector('#actionButton')
 
+
 button.addEventListener('click', onButtonClick)
+contactsList.addEventListener('click', onContactsList)
+contactInputs.addEventListener('keyup', onContactInputsKeyup)
+
+init()
+
+function init() {
+    ContactsApi
+        .getList()
+        .then((list) => {
+            renderContactList(list)
+            console.log(list)
+        })
+        .catch(err => showError(err))
+}
 
 function onButtonClick() {
     const contact = getContact()
@@ -14,9 +31,33 @@ function onButtonClick() {
         return
     }
 
-    renderContact(contact)
+    ContactsApi
+        .create(contact)
+        .then((newContact) => {
+            renderContact(newContact)
+            clearForms()
+        })
+        .catch(err => showError(err))
+}
 
-    cleanForms()
+function onContactsList(e) {
+    const tr = e.target.closest('tr')
+    const id = tr.getAttribute('id')
+
+    if (e.target.classList.contains('deleteBtn')) {
+        ContactsApi
+            .delete(id)
+            .then(() => {
+                deleteContact(tr)
+            })
+            .catch(err => showError(err))
+    }
+}
+
+function onContactInputsKeyup(e) {
+    if (e.key === 'Enter') {
+        onButtonClick()
+    }
 }
 
 function getContact() {
@@ -33,6 +74,16 @@ function isContactValid(contact) {
     );
 }
 
+function showError(error) {
+    alert(error.message)
+}
+
+function renderContactList(list) {
+    const html = list.map(generateContactHtml).join('')
+
+    contactsList.innerHTML = html
+}
+
 function renderContact() {
     const contact = getContact()
     const html = generateContactHtml(contact)
@@ -42,15 +93,23 @@ function renderContact() {
 
 function generateContactHtml(contact) {
     return `
-    <tr>
-      <td>${contact.name}</td>
-      <td>${contact.surname}</td>
-      <td>${contact.phone}</td>
+      <tr id="${contact.id}">
+      <td class="txt-center">${contact.name}</td>
+      <td class="txt-center">${contact.surname}</td>
+      <td class="txt-center">${contact.phone}</td>
+      <td>
+      <button type="button" class="editBtn">Edit</button>
+      <button type="button" class="deleteBtn">Delete</button>
+      </td>
     </tr>
   `
 }
 
-function cleanForms() {
+function deleteContact(tr) {
+    contactsList.removeChild(tr)
+}
+
+function clearForms() {
     nameInput.value = ''
     surnameInput.value = ''
     phoneInput.value = ''
