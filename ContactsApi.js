@@ -7,7 +7,7 @@ class ContactsApi {
                 return res.json()
             }
 
-            throw new Error('Can not retrieve todo list from server.');
+            throw new Error('Can not retrieve contact list from server.');
         })
     }
 
@@ -23,7 +23,7 @@ class ContactsApi {
                 return res.json()
             }
 
-            throw new Error('Can not create todo on server.');
+            throw new Error('Can not create contact on server.');
         })
     }
 
