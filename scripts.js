@@ -18,7 +18,6 @@ function init() {
         .getList()
         .then((list) => {
             renderContactList(list)
-            console.log(list)
         })
         .catch(err => showError(err))
 }
