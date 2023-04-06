@@ -1,7 +1,8 @@
-.txt-center{
-    text-align: center;
+.formInput{
+    width: 100px;
 }
 
-#actionButton{
-    width: 98px;
+.txt-center{
+    text-align: center;
+    width: 105px;
 }
