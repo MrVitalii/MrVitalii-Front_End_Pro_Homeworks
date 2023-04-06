@@ -100,6 +100,7 @@ function deleteContactEl(el) {
         .catch(e => showError(e))
 
     el.remove()
+
     contactList = contactList.filter(contactItem => contactItem.id !== id)
 }
 
@@ -136,7 +137,6 @@ function renderContact(contact) {
 }
 
 function generateContactHtml(contact) {
-    const done = contact.done ? ' done' : ''
     return `
     <tr
       class="contactItem"
