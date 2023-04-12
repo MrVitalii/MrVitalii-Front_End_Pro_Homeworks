@@ -59,7 +59,7 @@ function onInputKeyup(e) {
 }
 
 function getTodoData() {
-    return { title: input.val() }
+    return {title: input.val()}
 }
 
 function isTodoValid(todo) {
