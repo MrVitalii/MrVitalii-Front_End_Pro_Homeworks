@@ -87,7 +87,7 @@ function renderTodo(todo) {
 
 function generateTodoHtml(todo) {
     return `
-        <li id="${todo.id}">
+        <li style="background-color: transparent" id="${todo.id}">
         <span class="todo-message">${todo.title}</span>
         <button class="deleteButton">Delete</button>
         </li>
