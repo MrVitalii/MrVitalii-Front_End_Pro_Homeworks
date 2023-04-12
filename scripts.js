@@ -1,20 +1,19 @@
-const ul = document.querySelector('#todoList')
-const input = document.querySelector('#msgInput')
-const button = document.querySelector('#msgButton')
+const ul = $('#todoList')
+const input = $('#msgInput')
+const button = $('#msgButton')
 
-button.addEventListener('click', onButtonClick)
-ul.addEventListener('click', onUlClick)
-input.addEventListener('keyup', onInputKeyup)
+button.on('click', onButtonClick)
+ul.on('click', onUlClick)
+input.on('keyup', onInputKeyup)
 
 init()
 
 function init() {
-    TodoApi
-        .getList()
+    TodoApi.getList()
         .then((list) => {
             renderTodoList(list)
         })
-        .catch(err => showError(err))
+        .catch((err) => showError(err))
 }
 
 function onButtonClick() {
@@ -25,33 +24,31 @@ function onButtonClick() {
         return
     }
 
-    TodoApi
-        .create(todo)
+    TodoApi.create(todo)
         .then((newTodo) => {
             renderTodo(newTodo)
             clear()
         })
-        .catch(err => showError(err))
+        .catch((err) => showError(err))
 }
 
 function onUlClick(e) {
-    const li = e.target.closest('li')
-    const id = li.getAttribute('id')
+    const li = $(e.target).closest('li')
+    const id = li.attr('id')
 
-    if (e.target.classList.contains('deleteButton')) {
-
-        TodoApi
-            .delete(id)
+    if ($(e.target).hasClass('deleteButton')) {
+        TodoApi.delete(id)
             .then(() => {
                 deleteUl(li)
             })
-            .catch(err => showError(err))
+            .catch((err) => showError(err))
+        return
     }
 
-    if (li.style.backgroundColor === 'transparent') {
-        li.style.backgroundColor = 'aquamarine'
+    if (li.css('background-color') === 'rgba(0, 0, 0, 0)') {
+        li.css('background-color', 'aquamarine')
     } else {
-        li.style.backgroundColor = 'transparent'
+        li.css('background-color', 'transparent')
     }
 }
 
@@ -62,7 +59,7 @@ function onInputKeyup(e) {
 }
 
 function getTodoData() {
-    return {title: input.value}
+    return { title: input.val() }
 }
 
 function isTodoValid(todo) {
@@ -76,18 +73,18 @@ function showError(error) {
 function renderTodoList(list) {
     const html = list.map(generateTodoHtml).join('')
 
-    ul.innerHTML = html
+    ul.html(html)
 }
 
 function renderTodo(todo) {
     const html = generateTodoHtml(todo)
 
-    ul.insertAdjacentHTML('beforeend', html)
+    ul.append(html)
 }
 
 function generateTodoHtml(todo) {
     return `
-        <li id="${todo.id}">
+        <li style="background-color: transparent" id="${todo.id}">
         <span class="todo-message">${todo.title}</span>
         <button class="deleteButton">Delete</button>
         </li>
@@ -95,9 +92,9 @@ function generateTodoHtml(todo) {
 }
 
 function deleteUl(li) {
-    ul.removeChild(li)
+    li.remove()
 }
 
 function clear() {
-    input.value = ''
+    input.val('')
 }
