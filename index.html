@@ -5,21 +5,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Todo list + server + jQuery</title>
+    <title> Todo list + server + jQuery + MVC</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" defer></script>
-    <script src="TodoApi.js" defer></script>
+    <script src="TodoAPI.js" defer></script>
     <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div>
-    <ul id="todoList"></ul>
+<div class="container">
 
-    <label><input id="msgInput" type="text" placeholder="Введите сообщение"/></label>
-
+<form id="todoForm">
+    <input id="id" type="hidden"/>
+    <label><input id="title" type="text" placeholder="Введите сообщение"/></label>
     <button id="msgButton">Отправить</button>
+</form>
+
+<ul id="todoList"></ul>
 
 </div>
 
 </body>
-</html> sss
+</html>

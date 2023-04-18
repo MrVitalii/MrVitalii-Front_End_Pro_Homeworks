@@ -1,0 +1,11 @@
+.container {
+    max-width: 350px;
+}
+
+.done {
+    background-color: cadetblue;
+}
+
+#todoList {
+    padding-left: 19px !important;
+}

@@ -1,22 +1,26 @@
-const ul = $('#todoList')
-const input = $('#msgInput')
-const button = $('#msgButton')
+const CLASS_TODO_ITEM = 'todoItem'
+const CLASS_DONE = 'done'
+const CLASS_DELETE_BTN = 'deleteBtn'
+const CLASS_EDIT_BTN = 'editBtn'
+const listEl = document.querySelector('#todoList')
+const form = document.querySelector('#todoForm')
+let todoList = []
 
-button.on('click', onButtonClick)
-ul.on('click', onUlClick)
-input.on('keyup', onInputKeyup)
+form.addEventListener('submit', onFormSubmit)
+form.addEventListener('keyup', onToDoListKeyup)
+listEl.addEventListener('click', onTodoListClick)
 
-init()
+TodoApi
+    .getList()
+    .then((list) => {
+        renderTodoList(list)
+        todoList = list
+    })
+    .catch(e => showError(e))
 
-function init() {
-    TodoApi.getList()
-        .then((list) => {
-            renderTodoList(list)
-        })
-        .catch((err) => showError(err))
-}
+function onFormSubmit(e) {
+    e.preventDefault()
 
-function onButtonClick() {
     const todo = getTodoData()
 
     if (!isTodoValid(todo)) {
@@ -24,77 +28,161 @@ function onButtonClick() {
         return
     }
 
-    TodoApi.create(todo)
-        .then((newTodo) => {
-            renderTodo(newTodo)
-            clear()
-        })
-        .catch((err) => showError(err))
+    if (todo.id) { // update
+        TodoApi
+            .update(todo.id, todo)
+            .then((newTodo) => {
+                replaceTodo(todo.id, newTodo)
+                clearForm()
+                todoList = todoList.map(todoItem => todoItem.id === todo.id ? newTodo : todoItem)
+            })
+            .catch(e => showError(e))
+    } else { // create
+        TodoApi
+            .create(todo)
+            .then((newTodo) => {
+                renderTodo(newTodo)
+                clearForm()
+                todoList.push(newTodo)
+            })
+            .catch(e => showError(e))
+    }
 }
 
-function onUlClick(e) {
-    const li = $(e.target).closest('li')
-    const id = li.attr('id')
+function onTodoListClick(e) {
+    const target = e.target
+    const todoEl = findTodoEl(target)
 
-    if ($(e.target).hasClass('deleteButton')) {
-        TodoApi.delete(id)
-            .then(() => {
-                deleteUl(li)
-            })
-            .catch((err) => showError(err))
+    if (!todoEl) {
         return
     }
+    if (isDeleteBtn(target)) {
+        deleteTodoEl(todoEl)
+        return;
+    } else if (isEditBtn(target)) {
+        editTodoEl(todoEl)
+        return;
+    }
 
-    if (li.css('background-color') === 'rgba(0, 0, 0, 0)') {
-        li.css('background-color', 'aquamarine')
-    } else {
-        li.css('background-color', 'transparent')
+    toggleDone(todoEl)
+}
+
+
+function onToDoListKeyup(e) {
+    if (e.key === 'Enter') {
+        onFormSubmit()
     }
 }
 
-function onInputKeyup(e) {
-    if (e.key === 'Enter') {
-        onButtonClick()
-    }
+function isDeleteBtn(el) {
+    return el.classList.contains(CLASS_DELETE_BTN)
+}
+
+function isEditBtn(el) {
+    return el.classList.contains(CLASS_EDIT_BTN)
+}
+
+function findTodoEl(el) {
+    return el.closest('.' + CLASS_TODO_ITEM)
 }
 
 function getTodoData() {
-    return {title: input.val()}
+    const id = form.id.value
+    const todo = findTodoById(id) || {} // undefined || {}
+
+    return {
+        ...todo,
+        title: form.title.value,
+    }
+}
+
+function deleteTodoEl(el) {
+    const id = getTodoElId(el)
+
+    TodoApi
+        .delete(id)
+        .catch(e => showError(e))
+
+    el.remove()
+    todoList = todoList.filter(todoItem => todoItem.id !== id)
+}
+
+function toggleDone(el) {
+    const id = getTodoElId(el)
+    const todo = findTodoById(id)
+
+    todo.done = !todo.done
+
+    TodoApi
+        .update(id, todo)
+        .catch(e => showError(e))
+
+    el.classList.toggle(CLASS_DONE)
+}
+
+function editTodoEl(el) {
+    const id = getTodoElId(el)
+    const todo = findTodoById(id)
+
+    fillForm(todo)
 }
 
 function isTodoValid(todo) {
     return todo.title !== ''
 }
 
-function showError(error) {
-    alert(error.message)
+function renderTodoList(list) {
+    const html = list.map(generatTodoHtml).join('')
+
+    listEl.innerHTML = html
 }
 
-function renderTodoList(list) {
-    const html = list.map(generateTodoHtml).join('')
+function replaceTodo(id, todo) {
+    const oldTodoEl = document.querySelector(`[data-id="${id}"]`)
+    const newTodoEl = generatTodoHtml(todo)
 
-    ul.html(html)
+    oldTodoEl.outerHTML = newTodoEl
 }
 
 function renderTodo(todo) {
-    const html = generateTodoHtml(todo)
+    const html = generatTodoHtml(todo)
 
-    ul.append(html)
+    listEl.insertAdjacentHTML('beforeend', html)
 }
 
-function generateTodoHtml(todo) {
+function generatTodoHtml(todo) {
+    const done = todo.done ? ' done' : ''
+
     return `
-        <li style="background-color: transparent" id="${todo.id}">
-        <span class="todo-message">${todo.title}</span>
-        <button class="deleteButton">Delete</button>
-        </li>
-    `
+    <li
+      class="todoItem${done}"
+      data-id="${todo.id}"
+    >
+      <span>${todo.title}</span>
+      <button class="editBtn">Edit</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+  `
 }
 
-function deleteUl(li) {
-    li.remove()
+function clearForm() {
+    form.reset()
+    form.id.value = ''
 }
 
-function clear() {
-    input.val('')
+function fillForm(todo) {
+    form.id.value = todo.id
+    form.title.value = todo.title
+}
+
+function showError(error) { // instanceof Error
+    alert(error.message)
+}
+
+function getTodoElId(el) {
+    return el.dataset.id
+}
+
+function findTodoById(id) {
+    return todoList.find(todo => todo.id === id)
 }
