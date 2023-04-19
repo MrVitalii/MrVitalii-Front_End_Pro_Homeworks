@@ -1,9 +1,13 @@
-.container {
-    max-width: 350px;
+#root {
+    max-width: 344px;
 }
 
 .done {
     background-color: cadetblue;
+}
+
+#title{
+ width: 285px;
 }
 
 #todoList {

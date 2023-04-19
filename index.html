@@ -6,24 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Todo list + server + jQuery + MVC</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" defer></script>
-    <script src="TodoAPI.js" defer></script>
-    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" defer></script>
+    <script src="./model/TodoAPI.js"></script>
+    <script src="./model/Collection.js"></script>
+    <script src="./view/TodoFormView.js"></script>
+    <script src="./view/TodoListView.js"></script>
+    <script src="./controller/Controller.js"></script>
+    <script src="scripts.js" defer></script>
 </head>
 <body>
 
-<div class="container">
-
-<form id="todoForm">
-    <input id="id" type="hidden"/>
-    <label><input id="title" type="text" placeholder="Введите сообщение"/></label>
-    <button id="msgButton">Отправить</button>
-</form>
-
-<ul id="todoList"></ul>
-
-</div>
+<div id="root"></div>
 
 </body>
 </html>
