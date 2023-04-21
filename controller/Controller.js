@@ -31,7 +31,7 @@ class Controller {
                     this.todoListView.replaceTodo(todo.id, newTodo)
                     this.todoFormView.clearFormData()
                 })
-                .catch(e => showError(e))
+                .catch(e => this.showError(e))
 
         } else { // create
             this.todoCollection.create(todo)
@@ -39,12 +39,12 @@ class Controller {
                     this.todoListView.renderTodo(newTodo)
                     this.todoFormView.clearFormData()
                 })
-                .catch(e => showError(e))
+                .catch(e => this.showError(e))
         }
     }
 
     deleteTodoEl(id) {
-        this.todoCollection.delete(id).catch(e => showError(e))
+        this.todoCollection.delete(id).catch(e => this.showError(e))
 
         this.todoListView.removeTodo(id)
     }
@@ -56,8 +56,12 @@ class Controller {
 
         this.todoCollection
             .update(id, todo)
-            .catch(e => showError(e))
+            .catch(e => this.showError(e))
 
         this.todoListView.replaceTodo(id, todo)
+    }
+
+    showError(error) {
+        alert(error.message)
     }
 }

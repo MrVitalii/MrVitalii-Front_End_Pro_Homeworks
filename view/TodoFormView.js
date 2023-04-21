@@ -22,7 +22,7 @@ class TodoFormView {
 
 
         if (!this.isTodoValid(data)) {
-            showError(new Error('Поле задач не должно быть пустым'))
+            this.showError(new Error('Поле задач не должно быть пустым'))
             return
         }
 
@@ -57,5 +57,9 @@ class TodoFormView {
         for (const input of this.$inputs) {
             input.value = ''
         }
+    }
+
+    showError(error) {
+        alert(error.message)
     }
 }

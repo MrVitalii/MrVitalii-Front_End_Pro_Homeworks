@@ -37,10 +37,13 @@ class Collection {
     }
 
     delete(id) {
-        this.deleteListItem(id)
-        TodoApi.delete(id)
+        return TodoApi
+            .delete(id)
+            .then(todoItem => {
+                this.deleteListItem(id, todoItem)
 
-        return Promise.resolve()
+                return Promise.resolve()
+            })
     }
 
     getList() {
