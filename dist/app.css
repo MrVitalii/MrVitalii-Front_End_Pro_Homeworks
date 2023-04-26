@@ -1,0 +1,21 @@
+.gallery {
+    display: flex;
+    margin-left: 20px;
+}
+
+.album_element:hover {
+    color: lightseagreen !important;
+    transition: 0.5s;
+}
+
+.gallery_photos {
+    max-width: 1200px;
+    margin-left: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery_img {
+    width: 195px;
+}
