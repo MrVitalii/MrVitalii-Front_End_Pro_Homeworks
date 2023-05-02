@@ -6,7 +6,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
-    // mode: "development",
     plugins: [new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
     })],
