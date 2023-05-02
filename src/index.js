@@ -1,3 +1,6 @@
+import {StudentsApi} from "./studentsApi"
+import './style.css'
+
 const CLASS_STUDENT_ITEM = 'studentItem'
 const CLASS_DELETE_BTN = 'deleteBtn'
 const CLASS_MARKS_INPUT = 'markInput'
@@ -10,9 +13,7 @@ form.addEventListener('submit', onFormSubmit)
 studentsContainer.addEventListener('click', onStudentsContainerClick)
 studentsContainer.addEventListener('focusout', onStudentsContainerFocusOut)
 
-import {StudentsApi} from "./studentsApi"
-
- StudentsApi
+StudentsApi
     .getList()
     .then((list) => {
         renderStudentList(list)
@@ -179,7 +180,6 @@ function generateStudentHtml(student) {
       </td>
     </tr>
   </tbody>
-</table>
   `
 }
 
