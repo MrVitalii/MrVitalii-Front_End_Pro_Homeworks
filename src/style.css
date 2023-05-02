@@ -1,3 +1,7 @@
 .markInput {
     width: 30px;
 }
+
+.formLabel {
+    font-weight: bold;
+}
