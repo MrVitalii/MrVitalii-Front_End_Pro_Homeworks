@@ -141,43 +141,20 @@ function renderStudent(student) {
 }
 
 function generateStudentHtml(student) {
+    let input = ``
+    for (let i = 0; i < student.marks.length; i++) {
+        input += `<td><input id="${i}" class="markInput" type="text" value="${student.marks[i]}"></td>`
+    }
+
     return `
-  <tbody id="studentList">
+    <tbody id="studentList">
     <tr data-id="${student.id}" class="studentItem">
+      
       <td>${student.name}</td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[0]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[1]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[2]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[3]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[4]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[5]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[6]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[7]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[8]}">
-      </td>
-      <td>
-        <input class="markInput" type="text" value="${student.marks[9]}">
-      </td>
-      <td>
-        <button class="deleteBtn">Delete</button>
-      </td>
+      
+      ${input}
+      
+      <td><button class="deleteBtn">Delete</button></td>
     </tr>
   </tbody>
   `
