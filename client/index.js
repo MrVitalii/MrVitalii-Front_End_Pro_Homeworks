@@ -102,7 +102,7 @@ function generateChatHtml(data) {
 }
 
 function showError(error) {
-    console.info(error)
+    alert(error)
 }
 
 ws.onopen = () => {
