@@ -1,0 +1,12 @@
+#messageContainer{
+    padding-top: 10px;
+}
+
+.name {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.message {
+    margin-left: 5px;
+}
