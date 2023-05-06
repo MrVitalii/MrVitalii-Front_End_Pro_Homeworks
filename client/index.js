@@ -12,11 +12,11 @@ init()
 
 function init() {
     const str = localStorage.getItem('CHAT_DATA_KEY')
-    form.name.value = JSON.parse(localStorage.getItem('USER_NAME_KEY'))
-    form.message.value = JSON.parse(localStorage.getItem('USER_MESSAGE_KEY'))
 
     try {
         const parsed = JSON.parse((str))
+        form.name.value = JSON.parse(localStorage.getItem('USER_NAME_KEY'))
+        form.message.value = JSON.parse(localStorage.getItem('USER_MESSAGE_KEY'))
 
         if (parsed) {
             chatHistory = parsed
