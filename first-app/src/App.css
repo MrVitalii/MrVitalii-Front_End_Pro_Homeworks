@@ -1,0 +1,69 @@
+.Header {
+    background-color: #181818;
+    height: 93px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header input {
+    margin-top: 11px;
+    height: 20px;
+}
+
+.Header ul {
+    display: flex;
+}
+
+.Header li {
+    padding: 13px;
+    list-style: none;
+}
+
+.Header a {
+    text-decoration: none;
+    color: white;
+}
+
+.Header li:last-of-type a {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 9px 20px;
+    font-size: 16px;
+    color: #000000;
+}
+
+.Header_logo {
+    padding: 30px;
+}
+
+.Content {
+    background-size: cover;
+    height: 91vh;
+}
+
+.ContentText {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    color: #C0C0C0;
+}
+
+.Sidebar {
+    position: absolute;
+    top: 34%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Sidebar li {
+    list-style: none;
+    line-height: 30px;
+}
+
+.Sidebar a {
+    color: white;
+}
