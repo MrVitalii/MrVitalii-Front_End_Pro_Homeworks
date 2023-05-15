@@ -1,4 +1,4 @@
-import header_logo from './images/Aperture_header_logo.svg'
+import header_logo from './images/ApertureHeaderLogo.svg'
 
 export default function Header() {
     return (

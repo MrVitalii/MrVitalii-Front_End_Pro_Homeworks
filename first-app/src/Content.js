@@ -1,4 +1,4 @@
-import main_photo from './images/Main_page.jpg'
+import main_photo from './images/MainPage.jpg'
 
 export default function Content() {
     return (
