@@ -1,8 +1,8 @@
-export default function Footer () {
+export default function Footer() {
     return (
         <div>
             <button>All</button>
-            <button>Only Done</button>
+            <button>Done</button>
             <button>Not Done</button>
         </div>
     )
