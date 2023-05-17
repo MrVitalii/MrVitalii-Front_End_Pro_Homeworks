@@ -6,19 +6,19 @@ import './App.css'
 
 const initialList = [
     {
-        "title": "facere blanditiis illumvddv",
+        "title": "facere blanditiis illumvddv ",
         "status": true,
         "done": false,
         "id": "96",
     },
     {
-        "title": "itaque eveniet rationevdvdsvds",
+        "title": "itaque eveniet rationevdvdsvds ",
         "status": true,
         "done": true,
         "id": "98",
     },
     {
-        "title": "molestiae nemo minus",
+        "title": "molestiae nemo minus ",
         "status": true,
         "done": true,
         "id": "99",

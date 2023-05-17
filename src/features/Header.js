@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react'
 
 export default function Header({todoEdit, onTodoSubmit}) {
     const [title, setTitle] = useState('');
@@ -26,7 +26,7 @@ export default function Header({todoEdit, onTodoSubmit}) {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label htmlFor='title'>Title:</label>
+                <label htmlFor='title'>Title: </label>
                 <input
                     type='text'
                     id='title'
