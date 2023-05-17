@@ -1,39 +1,37 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect} from 'react';
 
 export default function Header({todoEdit, onTodoSubmit}) {
-    const [title, setTittle] = useState('')
-
+    const [title, setTitle] = useState('');
 
     useEffect(() => {
         if (todoEdit.title) {
-            setTittle(todoEdit.title)
+            setTitle(todoEdit.title)
         }
     }, [todoEdit.title])
 
-    function onTittleChange(e) {
-        setTittle(e.target.value)
+    function onTitleChange(e) {
+        setTitle(e.target.value)
     }
 
     function onSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         const todo = {
             ...todoEdit,
             title,
-            id: Math.random(),
         }
-        onTodoSubmit(todo)
+        onTodoSubmit(todo);
     }
 
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label htmlFor='title'>Title: </label>
+                <label htmlFor='title'>Title:</label>
                 <input
                     type='text'
                     id='title'
                     value={title}
-                    onChange={onTittleChange}
+                    onChange={onTitleChange}
                 />
             </form>
         </div>

@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState} from 'react'
 import Header from './features/Header'
 import TodoList from './features/TodoList'
 import Footer from './features/Footer'
@@ -6,31 +6,46 @@ import './App.css'
 
 const initialList = [
     {
-        "title": "facere blanditiis illumvddv ",
+        "title": "facere blanditiis illumvddv",
         "status": true,
         "done": false,
         "id": "96",
     },
     {
-        "title": "itaque eveniet rationevdvdsvds ",
+        "title": "itaque eveniet rationevdvdsvds",
         "status": true,
         "done": true,
         "id": "98",
     },
     {
-        "title": "molestiae nemo minus ",
+        "title": "molestiae nemo minus",
         "status": true,
         "done": true,
         "id": "99",
     },
-]
+];
 
 function App() {
     const [list, setList] = useState(initialList)
     const [todoEdit, setTodoEdit] = useState({})
 
     function onTodoSubmit(todo) {
-        setList([...list, todo])
+        if (todo.id) {
+            const newList = list
+                .map(todoItem => todoItem.id === todo.id ? todo : todoItem)
+
+            setList(newList)
+
+            setTodoEdit({})
+
+        } else {
+            const todoFromServer = {
+                ...todo,
+                id: Math.random(),
+            }
+
+            setList([...list, todoFromServer])
+        }
     }
 
     function onTodoRemove(id) {
