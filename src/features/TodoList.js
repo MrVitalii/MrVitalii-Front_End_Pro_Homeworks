@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem'
 
-export default function TodoList ({ list, onTodoRemove, onTodoEdit }) {
+export default function TodoList({list, onTodoRemove, onTodoEdit}) {
     return (
         <div>
             <ul>

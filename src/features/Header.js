@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { create, edit } from '../store/actions/todo'
+import {useState, useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {edit, create} from '../store/actions/todo'
 
-export default function Header () {
+export default function Header() {
     const dispatch = useDispatch()
     const todoEdit = useSelector((state) => state.todo.todoEdit)
 
@@ -10,15 +10,15 @@ export default function Header () {
 
     useEffect(() => {
         if (todoEdit.title) {
-            setTitle(todoEdit.title);
+            setTitle(todoEdit.title)
         }
     }, [todoEdit])
 
-    function onTitleChange (e) {
-        setTitle(e.target.value);
+    function onTitleChange(e) {
+        setTitle(e.target.value)
     }
 
-    function onSubmit (e) {
+    function onSubmit(e) {
         e.preventDefault()
 
         const todo = {
@@ -28,6 +28,7 @@ export default function Header () {
 
         if (todo.id) {
             dispatch(edit(todo))
+            dispatch(edit({}))
         } else {
             dispatch(create(todo))
         }
@@ -38,14 +39,14 @@ export default function Header () {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label htmlFor='title'>Title:</label>
+                <label htmlFor='title'>Title: </label>
                 <input
                     type='text'
                     id='title'
                     value={title}
                     onChange={onTitleChange}
                 />
-                <button type="submit">{todoEdit.id ? 'Edit' : 'Create'}</button>
+                <button type='submit'>{todoEdit.id ? 'Edit' : 'Create'}</button>
             </form>
         </div>
     )

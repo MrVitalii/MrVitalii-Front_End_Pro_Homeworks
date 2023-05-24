@@ -1,4 +1,4 @@
-export default function Footer () {
+export default function Footer() {
     return (
         <div>
             <button>All</button>
