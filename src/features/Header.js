@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { create, edit } from '../store/actions/todo'
 
 export default function Header () {
-    const dispatch = useDispatch();
-    const todoEdit = useSelector((state) => state.todo.todoEdit);
+    const dispatch = useDispatch()
+    const todoEdit = useSelector((state) => state.todo.todoEdit)
 
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState('')
 
     useEffect(() => {
         if (todoEdit.title) {
@@ -19,7 +19,7 @@ export default function Header () {
     }
 
     function onSubmit (e) {
-        e.preventDefault();
+        e.preventDefault()
 
         const todo = {
             ...todoEdit,
@@ -32,7 +32,7 @@ export default function Header () {
             dispatch(create(todo))
         }
 
-        setTitle('');
+        setTitle('')
     }
 
     return (

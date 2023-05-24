@@ -4,7 +4,7 @@ import {
     ACTION_TODO_EDIT
 } from '../actions/todo'
 
-const DEFAULT_TODO = { done: false };
+const DEFAULT_TODO = { done: false }
 
 const initialState = {
     list: [

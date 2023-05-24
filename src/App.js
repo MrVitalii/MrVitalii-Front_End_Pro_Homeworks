@@ -1,26 +1,23 @@
-import { useState } from 'react';
-import Header from './features/Header';
-import TodoList from './features/TodoList';
-import Footer from './features/Footer';
-import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { create, remove, edit } from './store/actions/todo';
+import { useState } from 'react'
+import Header from './features/Header'
+import TodoList from './features/TodoList'
+import Footer from './features/Footer'
+import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { create, remove, edit } from './store/actions/todo'
 
 function App() {
-    const list = useSelector(state => state.todo.list);
-    const dispatch = useDispatch();
-    const [todoEdit, setTodoEdit] = useState({});
+    const list = useSelector(state => state.todo.list)
+    const dispatch = useDispatch()
+    const [todoEdit, setTodoEdit] = useState({})
 
     function onTodoSubmit(todo) {
         if (todo.id) { // update
-            // TodoApi.update(todo)
-            dispatch(edit(todo));
+            dispatch(edit(todo))
         } else { // create
-            // TodoApi.create(todo)
-            // Add todo with id from server
-            dispatch(create(todo));
+            dispatch(create(todo))
         }
-        setTodoEdit({});
+        setTodoEdit({})
     }
 
     function onTodoRemove(id) {
