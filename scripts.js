@@ -19,7 +19,7 @@ function init() {
 function onButtonClick() {
     const todo = getTodoData()
 
-    if (!isTodoValid(todo)) {
+    if (!isContactValid(todo)) {
         showError(new Error('Поле сообщение не должно быть пустым'))
         return
     }
@@ -62,7 +62,7 @@ function getTodoData() {
     return {title: input.val()}
 }
 
-function isTodoValid(todo) {
+function isContactValid(todo) {
     return todo.title !== ''
 }
 
