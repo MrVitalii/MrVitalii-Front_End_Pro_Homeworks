@@ -35,7 +35,6 @@ export default function ContactForm() {
 
         dispatch(save(contact))
     }
-
     function onDeleteSelectedBtnClick() {
         const doneContacts = contactList.filter(contact => contact.done)
 
@@ -52,38 +51,38 @@ export default function ContactForm() {
             {({ values, errors, touched, handleSubmit, handleChange}) => (
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='name'>
-                    <input
-                        placeholder='Name'
-                        type='text'
-                        id='name'
-                        value={values.name}
-                        onChange={handleChange}
-                    />
-                    {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
+                        <input
+                            placeholder='Name'
+                            type='text'
+                            id='name'
+                            value={values.name}
+                            onChange={handleChange}
+                        />
+                        {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
                     </label>
 
                     <label htmlFor='lastName'>
-                    <input
-                        placeholder='Last name'
-                        type='text'
-                        id='lastName'
-                        value={values.lastName}
-                        onChange={handleChange}
-                    />
-                    {errors.lastName && touched.lastName? (<div>{errors.lastName}</div>) : null}
+                        <input
+                            placeholder='Last name'
+                            type='text'
+                            id='lastName'
+                            value={values.lastName}
+                            onChange={handleChange}
+                        />
+                        {errors.lastName && touched.lastName? (<div>{errors.lastName}</div>) : null}
                     </label>
 
                     <label htmlFor='phone'>
-                    <input
-                        placeholder='Phone'
-                        type='tel'
-                        id='phone'
-                        value={values.phone}
-                        onChange={handleChange}
-                    />
-                    {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
+                        <input
+                            placeholder='Phone'
+                            type='tel'
+                            id='phone'
+                            value={values.phone}
+                            onChange={handleChange}
+                        />
+                        {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
                         <SaveBtn/>
-                        <button type='button' onClick={onDeleteSelectedBtnClick}>Delete selected</button>
+                        <button type={"button"} onClick={onDeleteSelectedBtnClick}>Delete selected</button>
 
                     </label>
                 </form>

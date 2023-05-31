@@ -22,14 +22,14 @@ export function update(contact) {
     return {type: ACTION_CONTACT_UPDATE, payload: contact}
 }
 
-export function setTodoList(list) {
+export function setContactList(list) {
     return {type: ACTION_SET_CONTACT_LIST, payload: list}
 }
 
 export function fetchContacts() {
     return (dispatch) => {
         ContactsApi.getList().then((newList) => {
-            dispatch(setTodoList(newList))
+            dispatch(setContactList(newList))
         })
     }
 }
