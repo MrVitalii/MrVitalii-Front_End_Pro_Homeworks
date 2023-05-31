@@ -1,0 +1,18 @@
+#root{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    width: 120px;
+}
+
+table{
+    width: 590px;
+}
+
+thead{
+    text-align: left;
+}
