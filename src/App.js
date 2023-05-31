@@ -1,11 +1,11 @@
-import Form from './features/Form'
+import ContactForm from './features/ContactForm'
 import ContactList from './features/ContactList'
 import './App.css'
 
 function App() {
     return (
         <div className="App">
-            <Form/>
+            <ContactForm/>
             <ContactList/>
         </div>
     );

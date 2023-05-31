@@ -16,3 +16,7 @@ table{
 thead{
     text-align: left;
 }
+
+.validationError {
+    color: red;
+}

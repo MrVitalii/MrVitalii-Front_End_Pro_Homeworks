@@ -4,7 +4,11 @@ import {
     ACTION_CONTACT_EDIT, ACTION_CONTACT_UPDATE, ACTION_SET_CONTACT_LIST,
 } from '../actions/contact'
 
-const DEFAULT_CONTACT = {done: false}
+export const DEFAULT_CONTACT =   {
+    done:false,
+    name: '',
+    lastName: '',
+    phone: ''}
 
 const initialState = {
     list: [],
