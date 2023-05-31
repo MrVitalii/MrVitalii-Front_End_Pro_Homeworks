@@ -5,7 +5,6 @@ import {
 } from '../actions/contact'
 
 export const DEFAULT_CONTACT =   {
-    done:false,
     name: '',
     lastName: '',
     phone: ''}
