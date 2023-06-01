@@ -1,0 +1,11 @@
+.errorsContainer {
+    max-width: 515px;
+}
+
+.validationError {
+    color: red;
+}
+
+.errorsDistance {
+    padding-left: 5px;
+}

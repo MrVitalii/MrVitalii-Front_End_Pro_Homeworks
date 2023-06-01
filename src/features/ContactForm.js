@@ -1,20 +1,21 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {deleteContact, save} from '../store/actions/contact'
-import { Formik, useFormikContext } from 'formik'
+import { Formik } from 'formik'
 import * as Yup from 'yup'
 import {DEFAULT_CONTACT} from "../store/reducers/contactReducer"
+import style from '../index.module.css'
 
 const CONTACT_TEMPLATE = /^\d{3}-\d{3}-\d{4}$/
 
 const validationSchema = Yup.object({
     name: Yup.string()
-        .min(3, 'name must be > 2 symbols')
+        .min(3, '(Name must be more than 2 symbols)')
         .required('Required'),
     lastName: Yup.string()
-        .min(5, 'lastName must be > 4 symbols')
+        .min(5, '(Last name must be more than 4 symbols)')
         .required('Required'),
     phone: Yup.string()
-        .matches(CONTACT_TEMPLATE, 'Must be 000-000-0000')
+        .matches(CONTACT_TEMPLATE, '(Phone must be format 000-000-0000)')
         .required('Required')
 })
 
@@ -35,10 +36,15 @@ export default function ContactForm() {
 
         dispatch(save(contact))
     }
-    function onDeleteSelectedBtnClick() {
-        const doneContacts = contactList.filter(contact => contact.done)
 
-        doneContacts.forEach(contact => dispatch(deleteContact(contact.id)))
+    function onDeleteSelectedBtnClick() {
+        const doneContacts = contactList.filter(contact => contact.done);
+
+        doneContacts.forEach((contact, deleteContactTimeout) => {
+            setTimeout(() => {
+                dispatch(deleteContact(contact.id));
+            }, deleteContactTimeout * 600);
+        })
     }
 
     return (
@@ -58,7 +64,6 @@ export default function ContactForm() {
                             value={values.name}
                             onChange={handleChange}
                         />
-                        {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
                     </label>
 
                     <label htmlFor='lastName'>
@@ -69,7 +74,6 @@ export default function ContactForm() {
                             value={values.lastName}
                             onChange={handleChange}
                         />
-                        {errors.lastName && touched.lastName? (<div>{errors.lastName}</div>) : null}
                     </label>
 
                     <label htmlFor='phone'>
@@ -80,19 +84,33 @@ export default function ContactForm() {
                             value={values.phone}
                             onChange={handleChange}
                         />
-                        {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
-                        <SaveBtn/>
-                        <button type={"button"} onClick={onDeleteSelectedBtnClick}>Delete selected</button>
 
+                        <button type={"submit"} onClick={save}>Save</button>
+                        <button type={"button"} onClick={onDeleteSelectedBtnClick}>Delete selected</button>
                     </label>
+
+                   <div className={style.errorsContainer}>
+                       {errors.name && touched.name ?
+                           (<span
+                           className={style.validationError}>{errors.name}
+                           </span>) : null}
+
+                       {errors.lastName && touched.lastName?
+                           (<span
+                           className={`${style.validationError} 
+                           ${style.errorsDistance}`}>
+                           {errors.lastName}
+                           </span>) : null}
+
+                       {errors.phone && touched.phone ?
+                           (<span
+                           className={`${style.validationError} 
+                           ${style.errorsDistance}`}>
+                           {errors.phone}
+                           </span>) : null}
+                   </div>
                 </form>
             )}
         </Formik>
     )
-
-    function SaveBtn () {
-        const { isValid } = useFormikContext();
-
-        return <button type='submit' disabled={!isValid}>Save</button>
-    }
 }

@@ -36,11 +36,12 @@ export function fetchContacts() {
 
 export function deleteContact(id) {
     return (dispatch) => {
-        ContactsApi.delete(id).then(() => {
+       return ContactsApi.delete(id).then(() => {
             dispatch(remove(id))
         })
     }
 }
+
 
 export function updateContactStatus (contact) {
     const newContact = {
