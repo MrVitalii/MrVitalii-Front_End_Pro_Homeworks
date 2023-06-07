@@ -14,21 +14,21 @@ code {
 
 .App {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 10px
 }
 
 .App li {
     list-style: none
 }
 
-.active{
-    color: red;
+.active {
+    color: red
 }
 
-.navigation{
-    padding-bottom: 20px;
+.navigation {
+    padding-bottom: 20px
 }
 
-.UsersContainer{
-    padding: inherit;
+.UsersContainer {
+    padding: inherit
 }

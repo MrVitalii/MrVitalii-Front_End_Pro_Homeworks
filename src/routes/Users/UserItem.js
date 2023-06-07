@@ -1,6 +1,6 @@
-import { useDispatch } from 'react-redux';
-import {fetchUsersAlbumsList} from '../../store/actions/UsersPhotosActions';
-import { Link} from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import {fetchUsersAlbumsList} from '../../store/actions/UsersPhotosActions'
+import { Link} from 'react-router-dom'
 
 export default function UserItem({ user }) {
     const dispatch = useDispatch();

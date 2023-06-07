@@ -4,26 +4,23 @@ import NotFound from './routes/NotFound'
 import UsersRoutes from './routes/Users/UsersRoutes'
 import AlbumRoutes from './routes/Albums/AlbumRoutes'
 import PhotosRoutes from './routes/Photos/PhotosRoutes'
+import Home from './routes/Home'
 
 function App() {
-    const active = ({ isActive }) => isActive ? "active" : ""
-
     return (
         <div className="App">
             <nav className='navigation'>
-                <NavLink to='/users' className={active}>Users List</NavLink> | {' '}
-                <NavLink to='/albums' className={active}>Albums</NavLink> | {' '}
-                <NavLink to='/photos' className={active}>Photos</NavLink>
-
+                <NavLink to='/'>
+                    Home
+                </NavLink>
             </nav>
 
             <Routes>
-                <Route path='/users/*' element={<UsersRoutes />} />
-                <Route exact path="/albums/*" element={<AlbumRoutes />} />
-                <Route exact path="/albums/:userId/*" element={<AlbumRoutes />} />
-                <Route exact path="/photos/*" element={<PhotosRoutes/>} />
-                <Route exact path="/photos/:userId/*" element={<PhotosRoutes />} />
-                <Route path='/*' element={<NotFound />} />
+                <Route path='/' element={<Home />}></Route>
+                <Route path='/users/*' element={<UsersRoutes />}></Route>
+                <Route path='/albums/*' element={<AlbumRoutes />}></Route>
+                <Route path='/photos/*' element={<PhotosRoutes />}></Route>
+                <Route path='/*' element={<NotFound />}></Route>
             </Routes>
         </div>
     );
