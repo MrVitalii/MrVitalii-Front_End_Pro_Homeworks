@@ -19,9 +19,8 @@ export default function PhotosList() {
     }, [dispatch, albumId])
 
     function onReturnToAlbumsBtnClick() {
-        navigate(`/albums/1`)
+        navigate(`/users/albums/1`)
     }
-
 
     return (
         <div>

@@ -14,7 +14,6 @@ export default function AlbumList() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-
     useEffect(() => {
         dispatch(fetchUsersAlbumsList(userId));
     }, [dispatch, userId]);
@@ -29,8 +28,7 @@ export default function AlbumList() {
 
             <button onClick={onReturnToUsersBtnClick}>Return to Users</button>
 
-            <ul >
-
+            <ul>
                 {list.map(album => (
                     <AlbumItem
                         key={album.id}

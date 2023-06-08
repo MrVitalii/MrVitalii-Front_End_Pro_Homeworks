@@ -25,11 +25,4 @@ export default class UsersPhotosApi {
     static getAlbumsList(userId) {
         return this.request('cant retrieve albums list from server', 'albums?userId=' + userId)
     }
-    static getOneAlbum(id) {
-        return this.request('cant retrieve one album from server', 'albums/', id)
-    }
-
-    static getGalleryList() {
-        return this.request('cant retrieve photos list from server', 'photos/')
-    }
 }

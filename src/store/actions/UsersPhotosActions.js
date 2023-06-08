@@ -3,7 +3,6 @@ import UsersPhotosApi from "../../api/UsersPhotosApi"
 export const ACTION_SET_USERS_LIST = 'ACTION_SET_USERS_LIST'
 export const ACTION_SET_ALBUMS_LIST = 'ACTION_SET_ALBUMS_LIST'
 export const ACTION_SET_GALLERY_LIST = 'ACTION_SET_GALLERY_LIST'
-export const ACTION_SET_ALBUMS_ITEM = 'ACTION_SET_ALBUMS_ITEM'
 
 export function fetchUsersList() {
     return (dispatch) => {
@@ -18,7 +17,6 @@ export function fetchUsersAlbumsList(userId) {
         UsersPhotosApi.getAlbumsList(userId).then((albumsList) => {
             dispatch(setAlbumsList(albumsList))
         })
-
     }
 }
 
