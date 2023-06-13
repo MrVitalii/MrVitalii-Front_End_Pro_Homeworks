@@ -26,25 +26,25 @@ export class ContactApi {
 
   static getOne(id) {
     return ContactApi.request(id).catch(() => {
-      throw new Error('Con not retrieve one todo from server.');
+      throw new Error('Con not retrieve one contact from server.');
     })
   }
 
   static create(todo) {
     return ContactApi.request('', 'POST', todo).catch(() => {
-      throw new Error('Con not create todo on server.');
+      throw new Error('Con not create contact on server.');
     })
   }
 
   static update(id, changes) {
     return ContactApi.request(id, 'PUT', changes).catch(() => {
-      throw new Error('Con not update todo on server.');
+      throw new Error('Con not update contact on server.');
     })
   }
 
   static delete(id) {
     return ContactApi.request(id, 'DELETE').catch(() => {
-      throw new Error('Con not delete todo on server.');
+      throw new Error('Con not delete contact on server.');
     })
   }
 }
