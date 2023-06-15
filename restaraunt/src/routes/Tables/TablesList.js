@@ -1,21 +1,21 @@
 import {Row, Table, Button} from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchWaiters, setFilter } from '../../store/actions/waiters'
+import { fetchTables, setFilter } from '../../store/actions/tables'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import {selectWaiters} from '../../store/selectors/restaurantSelector'
-import { waitersColumns } from './WaitersColumns'
+import {selectTables} from '../../store/selectors/restaurantSelector'
+import { TablesCards } from './TablesCards'
 
-export default function WaitersList () {
+export default function TablesList () {
   const [searchParams] = useSearchParams();
   const filter = searchParams.get('filter')
-  const list = useSelector(selectWaiters);
+  const list = useSelector(selectTables);
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const columns = waitersColumns(dispatch, navigate)
+  const columns = TablesCards(dispatch, navigate)
 
   useEffect(() => {
-    dispatch(fetchWaiters())
+    dispatch(fetchTables())
   }, [dispatch])
 
   useEffect(() => {
@@ -25,10 +25,10 @@ export default function WaitersList () {
   }, [dispatch, filter])
 
   return (
-    <div>
+    <div className='TablesSection'>
       <Row justify={"center"}>
           <Button type="primary">
-            <Link to='/waiter/create'>Add New</Link>
+            <Link to='/table/create'>Add New</Link>
           </Button>
       </Row>
 

@@ -7,9 +7,7 @@ import {
     ACTION_CLEAR_ORDER_EDIT, ACTION_SET_FILTER
 } from '../actions/orders'
 
-export const DEFAULT_ORDER = { done: false, title: '' };
-
-
+export const DEFAULT_ORDER = {};
 
 const initialState = {
     list: [],

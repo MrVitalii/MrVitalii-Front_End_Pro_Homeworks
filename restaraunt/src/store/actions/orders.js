@@ -18,14 +18,14 @@ export function fetchOrders () {
 
 export function fetchOneOrder (id) {
     return (dispatch) => {
-        OrdersApi.getOne(id).then((waiter) => {
-            dispatch(setOrderEdit(waiter))
+        OrdersApi.getOne(id).then((order) => {
+            dispatch(setOrderEdit(order))
         })
     }
 }
 
-export function create (waiter) {
-    return { type: ACTION_ORDER_CREATE, payload: waiter }
+export function create (order) {
+    return { type: ACTION_ORDER_CREATE, payload: order }
 }
 
 export function remove (id) {
@@ -36,8 +36,8 @@ export function remove (id) {
     }
 }
 
-export function setOrderEdit (waiter) {
-    return { type: ACTION_ORDER_EDIT, payload: waiter }
+export function setOrderEdit (order) {
+    return { type: ACTION_ORDER_EDIT, payload: order }
 }
 
 export function setFilter (filter) {
@@ -48,23 +48,23 @@ export function clearOrderEdit () {
     return { type: ACTION_CLEAR_ORDER_EDIT }
 }
 
-export function update (waiter) {
-    return { type: ACTION_ORDER_UPDATE, payload: waiter }
+export function update (order) {
+    return { type: ACTION_ORDER_UPDATE, payload: order }
 }
 
 export function setOrderList (list) {
     return { type: ACTION_SET_ORDER_LIST, payload: list }
 }
 
-export function save (waiter) {
+export function save (order) {
     return (dispatch) => {
-        if (waiter.id) { // update
-            OrdersApi.update(waiter.id, waiter).then(() => {
-                dispatch(update(waiter))
+        if (order.id) { // update
+            OrdersApi.update(order.id, order).then(() => {
+                dispatch(update(order))
             })
         } else { // create
-            OrdersApi.create(waiter).then((waiterWithId) => {
-                dispatch(create(waiterWithId))
+            OrdersApi.create(order).then((orderWithId) => {
+                dispatch(create(orderWithId))
             })
         }
     }

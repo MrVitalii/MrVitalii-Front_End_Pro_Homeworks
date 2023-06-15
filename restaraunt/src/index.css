@@ -16,22 +16,10 @@ code {
   text-align: center;
 }
 
-.active {
-  color: red;
-}
-
-.navigation {
-  padding-bottom: 20px;
-}
-
 .ant-table-content{
   padding-left: 23%
 }
 
-
-.ant-layout-content h1{
-  text-align: center;
-}
 
 .ant-menu-overflow{
   padding-bottom: 20px;
@@ -41,4 +29,17 @@ code {
 .ant-row{
   padding-top: 40px;
   padding-bottom: 20px;
+}
+
+.TablesSection .ant-table-tbody{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.DishesSection .ant-table{
+  padding-right: 10%;
+}
+
+.TableEditBtn {
+  margin-right: 5px;
 }

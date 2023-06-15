@@ -7,9 +7,7 @@ import {
     ACTION_CLEAR_TABLE_EDIT, ACTION_SET_FILTER
 } from '../actions/tables'
 
-export const DEFAULT_TABLE = { done: false, title: '' };
-
-
+export const DEFAULT_TABLE = {};
 
 const initialState = {
     list: [],

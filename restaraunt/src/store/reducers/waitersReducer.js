@@ -7,7 +7,7 @@ import {
   ACTION_CLEAR_WAITER_EDIT, ACTION_SET_FILTER
 } from '../actions/waiters'
 
-export const DEFAULT_WAITER = { done: false, title: '' };
+export const DEFAULT_WAITER = {};
 
 
 

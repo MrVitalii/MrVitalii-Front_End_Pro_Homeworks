@@ -1,10 +1,12 @@
 import { Route, Routes, NavLink } from 'react-router-dom'
-import './index.module.css';
-import Orders from './routes/Orders'
-import Tables from './routes/Tables/Tables'
-import NotFound from './routes/NotFound'
+import OrdersRoutes from './routes/Orders/OrdersRoutes'
 import WaitersRoutes from './routes/Waiters/WaitersRoutes'
-import { Layout, Menu } from 'antd';
+import TablesRoutes from './routes/Tables/TablesRoutes'
+import DishesRoutes from "./routes/Dishes/DishesRoutes"
+import NotFound from './routes/NotFound'
+import { Layout, Menu } from 'antd'
+import './index.module.css'
+
 
 const headerStyle = {
   textAlign: 'center',
@@ -25,7 +27,7 @@ function App() {
   const active = ({ isActive }) => isActive ? "active" : ""
   const items = [
     {
-      label: <NavLink to='/' className={active}>Orders</NavLink>,
+      label: <NavLink to='order' className={active}>Orders</NavLink>,
       key: 'orders',
     },
     {
@@ -33,13 +35,13 @@ function App() {
       key: 'waiters',
     },
     {
-      label: <NavLink to='/about' className={active}>Tables</NavLink>,
-      key: 'about',
+      label: <NavLink to='table' className={active}>Tables</NavLink>,
+      key: 'tables',
     },
-// {
-    //   label: <NavLink to='/' className={active}>Dishes</NavLink>,
-    //   key: 'dishes',
-    // },
+    {
+      label: <NavLink to='dish' className={active}>Dishes</NavLink>,
+      key: 'dishes',
+    },
   ]
 
   return (
@@ -49,10 +51,10 @@ function App() {
     </Layout.Header>
     <Layout.Content style={contentStyle}>
       <Routes>
+        <Route path='/order/*' element={<OrdersRoutes />} />
         <Route path='/waiter/*' element={<WaitersRoutes />} />
-        <Route path='/' element={<Orders />} />
-        <Route path='/about' element={<Tables />} />
-
+        <Route path='/table/*' element={<TablesRoutes />} />
+        <Route path='/dish/*' element={<DishesRoutes />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
     </Layout.Content>

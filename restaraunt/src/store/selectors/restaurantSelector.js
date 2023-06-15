@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect'
-// import { FILTERS } from '../reducers/waitersReducer'
 
 export const selectWaiters = state => state.waiter.list
 export const selectWaiterEdit = state => state.waiter.waiterEdit
@@ -8,14 +7,18 @@ export const selectTables = state => state.table.list
 export const selectTableEdit = state => state.table.tableEdit
 
 export const selectOrders = state => state.order.list
-export const selectOrderEdit = state => state.order.tableEdit
+export const selectOrderEdit = state => state.order.ordersEdit
 
+export const selectDishes = state => state.dish.list
+export const selectDishesEdit = state => state.dish.dishEdit
 
 export const selectCommonOrders = createSelector(
     selectOrders,
     selectWaiters,
     selectTables,
-    (orders, waiters, tables) => {
+    selectDishes,
+    (orders, waiters, tables, dishes) => {
+
         const waitersMap = waiters.reduce((acc, waiter) => {
             acc[waiter.id] = waiter
 
@@ -26,28 +29,51 @@ export const selectCommonOrders = createSelector(
 
             return acc
         }, {})
+        const dishesMap = dishes.reduce((acc, dish) => {
+            acc[dish.id] = dish
+
+            return acc
+        }, {})
 
         return orders.map((order) => ({
             ...order,
             table: tablesMap[order.tableId],
-            waiter: waitersMap[order.waiterId]
+            waiter: waitersMap[order.waiterId],
+            dish: dishesMap[order.dishId]
         }))
     }
 )
 
-//NOT FORGET TO DELETE THIS!!!!!
+export const selectOrdersOptions = createSelector(
+    selectTables,
+    selectWaiters,
+    selectDishes,
+    (tableList, waiterList, dishList) => {
+        const newTableList = tableList.map((table) => {
+            return {
+                'label' : `Table number ${table.number}` ,
+                'value' : table.id
+            }
+        })
 
-// export const selectFilteredContactList = createSelector(
-//   selectContacts,
-//   (state) => state.contact.filter
-//   (list, filter) => {
-//     if (filter === FILTERS.Active) {
-//       return list.filter(contact => contact.done === false)
-//     }
-//     if (filter === FILTERS.Done) {
-//       return list.filter(contact => contact.done === true)
-//     }
-//
-//     return list
-//   }
-// )
+        const newWaiterList = waiterList.map((waiter) => {
+            return {
+                'label' : waiter.firstName ,
+                'value' : waiter.id
+            }
+        })
+
+        const newDishList = dishList.map((dish) => {
+            return {
+                'label' : dish.name ,
+                'value' : dish.id
+            }
+        })
+
+        return {
+            table: newTableList,
+            waiter: newWaiterList,
+            dish : newDishList
+        }
+    }
+)

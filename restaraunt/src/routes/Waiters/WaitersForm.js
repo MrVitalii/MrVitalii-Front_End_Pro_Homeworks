@@ -18,12 +18,12 @@ export default function WaitersForm() {
     }, [dispatch, id, waiterEdit?.id])
 
     function onFinish(value) {
-        const contact = {
+        const waiter = {
             ...waiterEdit,
             ...value,
         }
 
-        dispatch(save(contact))
+        dispatch(save(waiter))
         navigate('/waiter')
     }
 

@@ -33,8 +33,7 @@ export function waitersColumns (dispatch, navigate) {
       title: 'Actions',
       key: 'actions',
       render: (_, waiter) => (
-
-        <Space wrap>
+        <Space >
           <Button onClick={() => onEditBtnClick(waiter)} type="primary">Edit</Button>
           <Button onClick={() => onDeleteBtnClick(waiter)} type="primary" danger>Delete</Button>
         </Space>

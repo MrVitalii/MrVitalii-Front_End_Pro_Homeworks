@@ -18,14 +18,14 @@ export function fetchTables () {
 
 export function fetchOneTable (id) {
     return (dispatch) => {
-        TablesApi.getOne(id).then((waiter) => {
-            dispatch(setTableEdit(waiter))
+        TablesApi.getOne(id).then((table) => {
+            dispatch(setTableEdit(table))
         })
     }
 }
 
-export function create (waiter) {
-    return { type: ACTION_TABLE_CREATE, payload: waiter }
+export function create (table) {
+    return { type: ACTION_TABLE_CREATE, payload: table }
 }
 
 export function remove (id) {
@@ -36,8 +36,8 @@ export function remove (id) {
     }
 }
 
-export function setTableEdit (waiter) {
-    return { type: ACTION_TABLE_EDIT, payload: waiter }
+export function setTableEdit (table) {
+    return { type: ACTION_TABLE_EDIT, payload: table }
 }
 
 export function setFilter (filter) {
@@ -48,23 +48,23 @@ export function clearTableEdit () {
     return { type: ACTION_CLEAR_TABLE_EDIT }
 }
 
-export function update (waiter) {
-    return { type: ACTION_TABLE_UPDATE, payload: waiter }
+export function update (table) {
+    return { type: ACTION_TABLE_UPDATE, payload: table }
 }
 
 export function setTableList (list) {
     return { type: ACTION_SET_TABLE_LIST, payload: list }
 }
 
-export function save (waiter) {
+export function save (table) {
     return (dispatch) => {
-        if (waiter.id) { // update
-            TablesApi.update(waiter.id, waiter).then(() => {
-                dispatch(update(waiter))
+        if (table.id) { // update
+            TablesApi.update(table.id, table).then(() => {
+                dispatch(update(table))
             })
         } else { // create
-            TablesApi.create(waiter).then((waiterWithId) => {
-                dispatch(create(waiterWithId))
+            TablesApi.create(table).then((tableWithId) => {
+                dispatch(create(tableWithId))
             })
         }
     }
