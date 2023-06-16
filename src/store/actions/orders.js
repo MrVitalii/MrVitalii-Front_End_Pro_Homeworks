@@ -8,14 +8,6 @@ export const ACTION_SET_ORDER_LIST = 'ACTION_SET_ORDER_LIST'
 export const ACTION_CLEAR_ORDER_EDIT = 'ACTION_CLEAR_ORDER_EDIT'
 export const ACTION_SET_FILTER = 'ACTION_SET_FILTER'
 
-export function fetchOrders () {
-    return (dispatch) => {
-        OrdersApi.getList().then((newList) => {
-            dispatch(setOrderList(newList))
-        })
-    }
-}
-
 export function fetchOneOrder (id) {
     return (dispatch) => {
         OrdersApi.getOne(id).then((order) => {
@@ -38,10 +30,6 @@ export function remove (id) {
 
 export function setOrderEdit (order) {
     return { type: ACTION_ORDER_EDIT, payload: order }
-}
-
-export function setFilter (filter) {
-    return { type: ACTION_SET_FILTER, payload: filter }
 }
 
 export function clearOrderEdit () {

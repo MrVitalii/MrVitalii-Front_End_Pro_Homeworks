@@ -17,7 +17,6 @@ export function dishesColumns (dispatch, navigate) {
       dataIndex: 'name',
       key: 'title',
     },
-
     {
       title: 'Description',
       dataIndex: 'description',
@@ -27,6 +26,7 @@ export function dishesColumns (dispatch, navigate) {
       title: 'Price',
       dataIndex: 'price',
       key: 'title',
+      render: (price) => `$${price.toLocaleString()}`,
     },
     {
       title: 'Actions',

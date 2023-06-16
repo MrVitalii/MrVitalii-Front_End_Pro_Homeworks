@@ -11,12 +11,10 @@ export default function Orders () {
   const [searchParams] = useSearchParams()
   const filter = searchParams.get('filter')
   const list = useSelector(selectCommonOrders)
-  const dishesPriceList = useSelector(selectDishes)
+  const dishesList = useSelector(selectDishes)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const totalPrice = dishesPriceList.reduce((accumulator, dish) => accumulator + dish.price, 0)
-  const columns = orderColumns(dispatch, navigate, totalPrice)
-    console.log(totalPrice)
+  const columns = orderColumns(dispatch, navigate,  dishesList)
 
   useEffect(() => {
     dispatch(fetchCommonOrders())
@@ -32,7 +30,7 @@ export default function Orders () {
       <div>
         <Row justify={"center"}>
             <Button type="primary">
-              <Link to='/order/create'>Add New</Link>
+              <Link to='order/create'>Add New</Link>
             </Button>
         </Row>
         <Table rowKey={'id'} columns={columns} dataSource={list} />

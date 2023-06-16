@@ -1,16 +1,16 @@
 import { Button, Space } from 'antd';
 import {clearOrderEdit, remove} from "../../store/actions/orders";
 
-export function orderColumns (dispatch, navigate, totalPrice) {
+export function orderColumns (dispatch, navigate, dishesList) {
   function onDeleteBtnClick (order) {
     dispatch(remove(order.id))
   }
 
   function onEditBtnClick (order) {
+    navigate(`order/${order.id}/edit`)
     dispatch(clearOrderEdit())
-    navigate(`/order/${order.id}/edit`)
   }
-  
+
   return [
     {
       title: 'Id',
@@ -31,10 +31,30 @@ export function orderColumns (dispatch, navigate, totalPrice) {
     },
 
     {
+      title: 'Dish',
+      dataIndex: 'dishes',
+      key: 'dishes',
+      render: (dishes) =>
+          dishes.map((dish) => {
+            const dishData = dishesList.find((item) => item.id === dish.dishId);
+            return dishData ? (
+                <div key={dish.id}>
+                  <span> ({dish.count}) - {dishData.name}</span>
+                </div>
+            ) : ('');
+          })
+    },
+    {
       title: 'For Payment',
-      dataIndex: 'totalPrice',
-      key: 'title',
-      render: (_, dish) => totalPrice,
+      dataIndex: 'dishes',
+      key: 'totalPrice',
+      render: (dishes) => {
+        const totalPrice = dishes.reduce((accumulator, dish) => {
+          const dishData = dishesList.find((item) => item.id === dish.dishId);
+          return accumulator + (dishData ? dishData.price * dish.count : 0);
+        }, 0);
+        return `$${totalPrice}`
+      },
     },
     {
       title: 'Actions',

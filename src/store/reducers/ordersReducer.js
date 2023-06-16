@@ -7,12 +7,11 @@ import {
     ACTION_CLEAR_ORDER_EDIT, ACTION_SET_FILTER
 } from '../actions/orders'
 
-export const DEFAULT_ORDER = {};
+export const DEFAULT_ORDER = {}
 
 const initialState = {
     list: [],
-    ordersEdit: DEFAULT_ORDER,
-
+    ordersEdit: DEFAULT_ORDER
 }
 
 export default function ordersReducer(state = initialState, { type, payload }) {
@@ -32,7 +31,7 @@ export default function ordersReducer(state = initialState, { type, payload }) {
             return { ...state, list: newList }
         case ACTION_ORDER_EDIT: return { ...state, ordersEdit: payload }
         case ACTION_CLEAR_ORDER_EDIT: return { ...state, ordersEdit: DEFAULT_ORDER }
-        case ACTION_SET_ORDER_LIST: return { ...state, list: payload }
+        case ACTION_SET_ORDER_LIST: return { ...state, list: payload, ordersEdit: DEFAULT_ORDER }
         case ACTION_SET_FILTER: return { ...state, filter: payload }
         case ACTION_ORDER_UPDATE: return {
             ...state,

@@ -13,7 +13,6 @@ export const DEFAULT_DISH = {}
 const initialState = {
     list: [],
     dishEdit: DEFAULT_DISH,
-
 }
 
 export default function dishesReducer(state = initialState, { type, payload }) {
@@ -33,7 +32,7 @@ export default function dishesReducer(state = initialState, { type, payload }) {
             return { ...state, list: newList }
         case ACTION_DISH_EDIT: return { ...state, dishEdit: payload }
         case ACTION_CLEAR_DISH_EDIT: return { ...state, dishEdit: DEFAULT_DISH }
-        case ACTION_SET_DISH_LIST: return { ...state, list: payload }
+        case ACTION_SET_DISH_LIST: return { ...state, list: payload, dishEdit: DEFAULT_DISH }
         case ACTION_SET_FILTER: return { ...state, filter: payload }
         case ACTION_DISH_UPDATE: return {
             ...state,

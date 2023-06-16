@@ -7,12 +7,11 @@ import {
     ACTION_CLEAR_TABLE_EDIT, ACTION_SET_FILTER
 } from '../actions/tables'
 
-export const DEFAULT_TABLE = {};
+export const DEFAULT_TABLE = {}
 
 const initialState = {
     list: [],
     tableEdit: DEFAULT_TABLE,
-
 }
 
 export default function tablesReducer(state = initialState, { type, payload }) {
@@ -32,7 +31,7 @@ export default function tablesReducer(state = initialState, { type, payload }) {
             return { ...state, list: newList }
         case ACTION_TABLE_EDIT: return { ...state, tableEdit: payload }
         case ACTION_CLEAR_TABLE_EDIT: return { ...state, tableEdit: DEFAULT_TABLE }
-        case ACTION_SET_TABLE_LIST: return { ...state, list: payload }
+        case ACTION_SET_TABLE_LIST: return { ...state, list: payload, tableEdit: DEFAULT_TABLE }
         case ACTION_SET_FILTER: return { ...state, filter: payload }
         case ACTION_TABLE_UPDATE: return {
             ...state,

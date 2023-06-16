@@ -7,7 +7,6 @@ import { setTableList  } from './tables'
 import { setDishList } from "./dishes"
 import { setWaiterList } from './waiters'
 
-
 export function fetchCommonOrders () {
   return (dispatch) => {
     Promise.all([
@@ -24,7 +23,7 @@ export function fetchCommonOrders () {
   }
 }
 
-export function fetchCommonOrderList() {
+export function fetchCommonOrderList () {
   return (dispatch) => {
     Promise.all([
       TablesApi.getList(),

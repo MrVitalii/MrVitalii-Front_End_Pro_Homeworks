@@ -51,14 +51,14 @@ export const selectOrdersOptions = createSelector(
     (tableList, waiterList, dishList) => {
         const newTableList = tableList.map((table) => {
             return {
-                'label' : `Table number ${table.number}` ,
+                'label' : `Table number ${table.number}`,
                 'value' : table.id
             }
         })
 
         const newWaiterList = waiterList.map((waiter) => {
             return {
-                'label' : waiter.firstName ,
+                'label' : waiter.firstName,
                 'value' : waiter.id
             }
         })
