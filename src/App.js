@@ -7,7 +7,7 @@ import TablesRoutes from './routes/Tables/TablesRoutes'
 import DishesRoutes from "./routes/Dishes/DishesRoutes"
 import NotFound from './routes/NotFound'
 import {items} from './constItems'
-import style from './index.module.css'
+import style from './styles/index.module.css'
 
 function App() {
   const storedCurrent = localStorage.getItem('current')
