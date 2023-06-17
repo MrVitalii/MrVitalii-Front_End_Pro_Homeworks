@@ -42,5 +42,5 @@ export function fetchCommonOrderList () {
     .catch(() => {
      throw new Error('Error fetching common order list')
   })
-  }
+ }
 }
