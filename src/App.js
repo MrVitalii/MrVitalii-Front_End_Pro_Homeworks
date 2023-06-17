@@ -1,11 +1,11 @@
 import React, {useEffect} from "react"
 import { Route, Routes, NavLink} from 'react-router-dom'
+import { Layout, Menu } from 'antd'
 import OrdersRoutes from './routes/Orders/OrdersRoutes'
 import WaitersRoutes from './routes/Waiters/WaitersRoutes'
 import TablesRoutes from './routes/Tables/TablesRoutes'
 import DishesRoutes from "./routes/Dishes/DishesRoutes"
 import NotFound from './routes/NotFound'
-import { Layout, Menu } from 'antd'
 import './index.module.css'
 
 const headerStyle = {
