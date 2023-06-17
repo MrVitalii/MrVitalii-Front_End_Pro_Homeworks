@@ -6,7 +6,7 @@ export class WaitersApi {
         method,
         body: body ? JSON.stringify(body) : undefined,
         headers: {
-          'Content-type': 'application/json',
+          'Cantent-type': 'application/json',
         }
       })
       .then((res) => {
@@ -14,37 +14,37 @@ export class WaitersApi {
           return res.json()
         }
 
-        throw new Error('Con not execute server request.');
+        throw new Error('Can not execute server request.');
       })
   }
 
   static getList() {
     return WaitersApi.request().catch(() => {
-      throw new Error('Con not retrieve waiters list from server.');
+      throw new Error('Can not retrieve waiters list from server.');
     })
   }
 
   static getOne(id) {
     return WaitersApi.request(id).catch(() => {
-      throw new Error('Con not retrieve one waiter from server.');
+      throw new Error('Can not retrieve one waiter from server.');
     })
   }
 
   static create(todo) {
     return WaitersApi.request('', 'POST', todo).catch(() => {
-      throw new Error('Con not create waiter on server.');
+      throw new Error('Can not create waiter on server.');
     })
   }
 
   static update(id, changes) {
     return WaitersApi.request(id, 'PUT', changes).catch(() => {
-      throw new Error('Con not update waiter on server.');
+      throw new Error('Can not update waiter on server.');
     })
   }
 
   static delete(id) {
     return WaitersApi.request(id, 'DELETE').catch(() => {
-      throw new Error('Con not delete waiter on server.');
+      throw new Error('Can not delete waiter on server.');
     })
   }
 }

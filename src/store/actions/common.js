@@ -14,11 +14,15 @@ export function fetchCommonOrders () {
       WaitersApi.getList(),
       TablesApi.getList(),
       DishesApi.getList(),
-    ]).then((res) => {
+    ])
+     .then((res) => {
       dispatch(setOrderList(res[0]))
       dispatch(setWaiterList(res[1]))
       dispatch(setTableList(res[2]))
       dispatch(setDishList(res[3]))
+    })
+     .catch(() => {
+      throw new Error('Error fetching common orders')
     })
   }
 }
@@ -30,10 +34,13 @@ export function fetchCommonOrderList () {
       WaitersApi.getList(),
       DishesApi.getList(),
     ])
-        .then((res) => {
-          dispatch(setTableList(res[0]))
-          dispatch(setWaiterList(res[1]))
-          dispatch(setDishList(res[2]))
-        })
+     .then((res) => {
+      dispatch(setTableList(res[0]))
+      dispatch(setWaiterList(res[1]))
+      dispatch(setDishList(res[2]))
+  })
+    .catch(() => {
+     throw new Error('Error fetching common order list')
+  })
   }
 }

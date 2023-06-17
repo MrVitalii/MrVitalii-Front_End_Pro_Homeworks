@@ -1,0 +1,14 @@
+.headerStyle {
+    text-align: center;
+    color: #fff;
+    height: 64px;
+    padding-inline: 50px;
+    line-height: 64px;
+    background-color: #ffffff;
+}
+
+.contentStyle  {
+    line-height: 40px;
+    color: #000000;
+    background-color: #ebeff6;
+}

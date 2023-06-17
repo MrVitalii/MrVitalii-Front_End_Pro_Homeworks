@@ -6,7 +6,7 @@ export class OrdersApi {
       method,
       body: body ? JSON.stringify(body) : undefined,
       headers: {
-        'Content-type': 'application/json',
+        'Cantent-type': 'application/json',
       }
     })
       .then((res) => {
@@ -14,37 +14,37 @@ export class OrdersApi {
           return res.json()
         }
 
-        throw new Error('Con not execute server request.');
+        throw new Error('Can not execute server request.');
       })
   }
 
   static getList() {
     return OrdersApi.request().catch(() => {
-      throw new Error('Con not retrieve order list from server.');
+      throw new Error('Can not retrieve order list from server.');
     })
   }
 
   static getOne(id) {
     return OrdersApi.request(id).catch(() => {
-      throw new Error('Con not retrieve one order from server.');
+      throw new Error('Can not retrieve one order from server.');
     })
   }
 
   static create(order) {
     return OrdersApi.request('', 'POST', order).catch(() => {
-      throw new Error('Con not create order on server.');
+      throw new Error('Can not create order on server.');
     })
   }
 
   static update(id, changes) {
     return OrdersApi.request(id, 'PUT', changes).catch(() => {
-      throw new Error('Con not update order on server.');
+      throw new Error('Can not update order on server.');
     })
   }
 
   static delete(id) {
     return OrdersApi.request(id, 'DELETE').catch(() => {
-      throw new Error('Con not delete order on server.');
+      throw new Error('Can not delete order on server.');
     })
   }
 }
