@@ -1,12 +1,12 @@
 export class OrdersApi {
-  static API = 'https://mock-api-5678.nw.r.appspot.com/orders/'
+  static API = `https://mokapi-server.onrender.com/orders/`
 
   static request(url = '', method = 'GET', body) {
     return fetch(OrdersApi.API + url, {
       method,
       body: body ? JSON.stringify(body) : undefined,
       headers: {
-        'Cantent-type': 'application/json',
+        'Content-type': 'application/json',
       }
     })
       .then((res) => {

@@ -1,12 +1,12 @@
 export class TablesApi {
-  static API = 'https://mock-api-5678.nw.r.appspot.com/tables/'
+  static API = `https://mokapi-server.onrender.com/tables/`
 
   static request(url = '', method = 'GET', body) {
     return fetch(TablesApi.API + url, {
       method,
       body: body ? JSON.stringify(body) : undefined,
       headers: {
-        'Cantent-type': 'application/json',
+        'Content-type': 'application/json',
       }
     })
       .then((res) => {

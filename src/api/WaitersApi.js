@@ -1,12 +1,12 @@
 export class WaitersApi {
-  static API = 'https://mock-api-5678.nw.r.appspot.com/waiters/'
+  static API = `https://mokapi-server.onrender.com/waiters/`
 
   static request(url = '', method = 'GET', body) {
     return fetch(WaitersApi.API + url, {
         method,
         body: body ? JSON.stringify(body) : undefined,
         headers: {
-          'Cantent-type': 'application/json',
+          'Content-type': 'application/json',
         }
       })
       .then((res) => {
@@ -30,8 +30,8 @@ export class WaitersApi {
     })
   }
 
-  static create(todo) {
-    return WaitersApi.request('', 'POST', todo).catch(() => {
+  static create(waiter) {
+    return WaitersApi.request('', 'POST', waiter).catch(() => {
       throw new Error('Can not create waiter on server.');
     })
   }

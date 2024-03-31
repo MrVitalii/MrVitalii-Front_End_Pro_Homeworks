@@ -1,12 +1,12 @@
 export class DishesApi {
-    static API = 'https://mock-api-5678.nw.r.appspot.com/dishes/'
+    static API = `https://mokapi-server.onrender.com/dishes/`
 
     static request(url = '', method = 'GET', body) {
         return fetch(DishesApi.API + url, {
             method,
             body: body ? JSON.stringify(body) : undefined,
             headers: {
-                'Cantent-type': 'application/json',
+                'Content-type': 'application/json',
             }
         })
             .then((res) => {
@@ -30,8 +30,8 @@ export class DishesApi {
         })
     }
 
-    static create(todo) {
-        return DishesApi.request('', 'POST', todo).catch(() => {
+    static create(dish) {
+        return DishesApi.request('', 'POST', dish).catch(() => {
             throw new Error('Can not create dish on server.');
         })
     }
